@@ -17,3 +17,7 @@
 
    * Unofficial Python client: [docs](http://amadeus.readthedocs.io/en/latest/), [code](https://github.com/ardydedase/amadeus-python)
    * Official Python client: [download](http://api.sandbox.amadeus.com/swagger-codegen/python)
+
+## Other commands
+
+   * See the SOAP functions in `1ASIWOTANA9_PDT_20180111_002944.zeep` and `1ASIWOTANA9_PRD_20180111_003131.zeep`.
