@@ -1,17 +1,23 @@
 # pyamadeus
 
-## Quickstart: REST API
+## Quickstart: Amadeus REST API
 
    * Obtain an API key from [https://sandbox.amadeus.com/](https://sandbox.amadeus.com/).
    * Store the API key in `constants.py`. 
    * `pip install -r requirements.txt`
    * `python test_amadeus_rest.py`
 
-## Quickstart: SOAP API
+## Quickstart: Amadeus SOAP API
 
    * Update the username and password in `constants.py`.
    * `pip install -r requirements.txt`
    * `python test_amadeus_soap.py` 
+
+## Quickstart: OAG SOAP API
+
+   * Update the `OAG_USERNAME` and `OAG_PASSWORD` in `constants.py`
+   * `pip install -r requirements.txt`
+   * `python test_oag_soap.py`
 
 ## REST API client documentation
 
