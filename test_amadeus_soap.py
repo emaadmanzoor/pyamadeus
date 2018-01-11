@@ -11,7 +11,7 @@ if __name__ == "__main__":
     # authenticate
     resp = client.service.Security_Authenticate(userIdentifier={
             "originatorTypeCode": "U",
-            "originator": ""
+            "originator": USERNAME
             },
             passwordInfo={
                 "dataLength": str(len(PASSWORD)),
