@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TRFPCQ_13_1_1A" xmlns="http://xml.amadeus.com/TRFPCQ_13_1_1A" elementFormDefault="qualified">
+  <xs:element name="DocRefund_ProcessRefund">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To process the refund currently open</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="actionDetails" minOccurs="0" type="StatusTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">To convey refund option</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="dummysegment" minOccurs="0" type="DummySegmentTypeI" />
+        <xs:element name="printerReference" minOccurs="0" type="ReferenceInformationTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">To convey the printer and stock + terminal id</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="targetStockProvider" minOccurs="0" type="StockRangeInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">To convey the target stock provider code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="refundedItinerary" minOccurs="0" maxOccurs="16" type="RefundedItineraryType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">This default group is used to convey the refunded itinerary. The refunded itinerary is composed of the origin city/airport code, the flight operating airline code and the destination city/airport code. Origin and destination city/airport codes are contained in the ODI segment. Operating airline code is conveyed in the TRA segment. This default group can be repeated up to 16 times since a document can be composed of up to 16 coupons.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="phoneFaxEmailAddress" minOccurs="0" maxOccurs="3" type="PhoneAndEmailAddressType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Used for refund notice fax and e-mail sending and potentially SMS (phone)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CompanyIdentificationTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Code or name to identify a company and any associated companies.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="operatingCompany" type="AlphaNumericString_Length1To35">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Used to convey an airline code. The airline code can be replaced by -- (in case of ARNK segment).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DummySegmentTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To serve the purpose of a mandatory segment at the beginning of a group and to avoid segment collision.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="OriginAndDestinationDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To convey the origin and destination of a journey.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="origin" type="AlphaNumericString_Length1To25">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">This data element will convey the origin city/airport code corresponding to the coupon being refunded.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="destination" type="AlphaNumericString_Length1To25">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">This data element will convey the destination city/airport code corresponding to the coupon being refunded.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PhoneAndEmailAddressType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a phone or email address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="phoneOrEmailType" type="AlphaNumericString_Length1To4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Phone or Email contact type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="telephoneNumberDetails" minOccurs="0" type="StructuredTelephoneNumberType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Structured telephone or fax number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="emailAddress" minOccurs="0" type="AlphaNumericString_Length1To70">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Email address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceInformationTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide specific reference identification for a traveller.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="referenceDetails" type="ReferencingDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">reference details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferencingDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="value" minOccurs="0" type="AlphaNumericString_Length1To14">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefundedItineraryType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To convey the refunded itinerary</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="airlineCodeRfndItinerary" type="TransportIdentifierTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">This segment is used to convey the flight operating carrier code in relation with the coupon being refunded.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="originDestinationRfndItinerary" type="OriginAndDestinationDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">This segment is used to convey the origin and destination airport/city codes related to the coupon being refunded.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a status, the action to be taken, and an additional qualification of the status.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="indicator" type="AlphaNumericString_Length3To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Status</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify a status and related information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="statusDetails" type="StatusDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Status Details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherStatusDetails" minOccurs="0" maxOccurs="98" type="StatusDetailsTypeI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StockRangeInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Conveys ticket stock range information. A stock range is identified by a stock type, a range number and an allocation status.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="stockTypeCode" minOccurs="0" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The short 1 or 2-letter code corresponding to the stock type, e.g. "A" for OPTAT.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="stockProvider" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The stock provider (usually an airline). It is only specified when the stock is not neutral.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StructuredTelephoneNumberType">
+    <xs:sequence>
+      <xs:element name="internationalDialCode" minOccurs="0" type="AlphaNumericString_Length1To25">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">International dial code</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="localPrefixCode" minOccurs="0" type="AlphaNumericString_Length1To25">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Local prefix code</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="areaCode" minOccurs="0" type="AlphaNumericString_Length1To25">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Area code.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="telephoneNumber" type="AlphaNumericString_Length1To25">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Telephone or fax number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransportIdentifierTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify transport service(s) or to specify transport service(s) which is/are to be updated or cancelled.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="companyIdentification" type="CompanyIdentificationTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Used to convey the airline code</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaNumericString_Length1To2">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To25">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..25</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="25" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To4">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..4</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To70">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..70</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="70" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length3To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To14">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..14</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="14" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To35">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..35</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095534D6FDB3810BDF35710BDF4B0B02CD7DB6E6080073592B30BD44EEA38E8C580C190639B28456A39541035C87FDFA12437E9A168F722CC07351FEFBDB9AAD6D5A6D856E5FE7A2DDEE5B3F924BF98E47FF12FA01DA0961DCF2F16EFE68BF97B7EB5DAFE91E78B3C67C5AA885D03B834169CAC415060FF51A251DB14CE1E51B37B89B0A61C36528138C5D82CA6D3C7DA66B2961A5ACC94AFA7ECBE75DA4269829822C468DC11A7DA2864EA04EAEB2D7D6B2962688129AF819EA070DE25AFAEC19137E6EA46BA2EB513AEB596024D17CCF114C59B6268C76F826F82812843C7A5D3FCD2BB83D154C348CBFF71071F6A198D770BDE3AD9C6930FE61B68DE22F4CFB541653DB60138C66054B41DA77FEE8DA61A1927E4723EE1E76698C90C936F2DDFA439906F68FAF0003A7BC3341C646BE35568125C5A1CA44560DAB7F7166EE1DF169C821B19D569CC80FBF85B60827B79F394087ADE3F3D4040DA8AAC0016A80C59F2481DBA677620FA36AD25CC7C62B2F77B3AFB9F93F58B02D62B6947C8AD3F6AA2B15CECFEAE8A72576973902A6EBDB7B8ABB6FBD260942E5E1253C41F31B75BC9F01512E3C31BECB9C6DD277FA45AEED80F62F4B5B31DAB211C6104A3B79706ACC65B1FE277F86871A4B90A4C98FE182B89756347E5B8FF0551E38D8B6B88031DBDD882F7F11542BD9F049CB161858428A653CAA7F96C8CE1D287C21AAA3D2A3669C128C0929444BD4994038A58CB1053DD3B679489DDB8480CD2A1EDF549F808C21AA763E56DB19A3E69B086D69024A0E78CB22C8DA75F9F0F89E5F27C33434D8AF450F5976C9C628F68E3751B9B362EBDD510440A303699AC0618DF22372F773299B00124312BD8ABFEA2B829F6A5571B38D06DEF67F33F49D9B5344E6CAAE5DDBA64F0D8106F7B89FBB2BA12DBCD5D75E689CB00527CF870F629B9BCB9FCCC1A3A0C8327A27A20606049CCC87A30893A327B84640FA678E94E474F20E3E0B133673F7D302A41CCE6EC3F248121D018050000
+-->
+

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TTSLRQ_09_1_1A" xmlns="http://xml.amadeus.com/TTSLRQ_09_1_1A" elementFormDefault="qualified">
+  <xs:element name="Ticket_RetrieveListOfTSM">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Retrieve list of TSMs</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="passengerTattoo" minOccurs="0" type="ReferenceInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Tattoo of the passenger to whom TSM-Ps to retrieve are linked.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="deadIndicator" type="StatusTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Dead or deleted indicator (DED) to request either deleted TSMs (DED=Y) OR active ones (DED=N).</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="infantOrAdultAssociation" minOccurs="0" type="TravellerInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Infant or Adult passenger</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ReferenceInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to convey the passenger references.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="passengerReference" type="ReferencingDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Used to convey the passenger tatoo or display number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferencingDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Qualifier of the tattoo</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="value" type="AlphaNumericString_Length1To35">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Tattoo</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a status, the action to be taken, and an additional qualification of the status.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="indicator" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Qualifier of the indicator.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="action" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Value of the indicator.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify a status and related information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="statusDetails" type="StatusDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Details of the indicator</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravellerInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a PAX information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="paxDetails" type="TravellerSurnameInformationType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Detail if the discount is adult only or infant only</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravellerSurnameInformationType">
+    <xs:sequence>
+      <xs:element name="type" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Customer type: A=adult IN = infant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaNumericString_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To35">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..35</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To2">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095534D6FDB300CBDEB5708BBEC30C471526C4003E8E0366937A0E947E2DD02048AC4244265C913E5A25ED1FF3ECA76B6EE306CBB182445F3E3BDC7EBC5ED6255948BF9F6EE564CF3C9D9289F8EA61FF9D23B2D5B3EF9389B9CCFCE3EF1EB65F921CF6779CE8A6511DB1AF0CA5870B2024181ED8544A3CA14CE9E51B39D44B8A537ACA502718CB19E8DC7CF95CD6425353498295F8DD9AE71DAC2DC04314688D1B8038EB551C8D411D4E39ABE95143134C094D74029289C77C9AB2A70E40D6F552D5D9BDA09D7584B81BA0DE6708CE25DD1B7E3F7C1D7C14094A1E5D2697EE9DDDE68AA61A4E55FDCDE874A46E3DD8C374E36F1E883F90E9A37085DBA36A8ACC72600C7188C8AB6E5F4CFCE68AA9171822DE7237E6A8699CC30F9D6F2559A03F98AA60F4FA0B3774CC35E36365E873AC1A5C55E5A04A67DB3B3B0866F0D3805F732AAE3F002EEE29FC004F72BE72511F4BA7D798280B41559012C5019B2E4813AB4AF6C4FF4AD1A4B98F9C464E77774763F27EB2F05AC57D20E905B7FD044E37CB6F9BC28E69B85367BA962E9BDC5CDA2DCCE0D46E9E2253145FC11739BA50C8F9018EF73B0E31A3737FE40B5DCA11BC4E83B675B564138C00046675F19B01AD73EC49FF0D1E24873159830FD3D3627D68D1D94E3FE0BA2DA1B176F21F67474620BDEC73708757E1270C6FA1512A298EE281FE7932186573E14D650ED41B1490B4601CE4949D49B44D9A388950C31D5FDEA8C32B11D1689413AB49D3E091F4158E378A85C16CBF18B066B680D49027ACDE895A5F1F4DBF321B15C9E6EA6AF49910EAAEE928D53EC196DBC6B62DDC42B6F350491028C8D46CB1EC6F7C8CDAF3B198D580F929814EC4D7F51DC17DBD228E2767BFE692749D795344EDC3FAC183CD744D956E276BEB816E5EAEBE244119701A4984E27A78028CBF5CDEA81D57414068F44730F7ECF909890F564126DE2AC474776408AA1F30AE848E1096E487677FB72BD6427C2FE9C31E840E4E7EC07858A62DF13050000
+-->
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/CLTRES_04_1_IA" xmlns="http://xml.amadeus.com/CLTRES_04_1_IA" elementFormDefault="qualified">
+  <xs:element name="PNR_IgnoreReply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="sbrRecLoc" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="reservation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="controlNumber">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..20</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="20" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="clearInformation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="actionRequest">
+                <xs:simpleType>
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                  </xs:annotation>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B08000000000000009593C16EDB300C86EF7A8ADC7618123B6D07AC0174706B272BD0A445ECDD0218AACD384265C913E5A246D1771F253B587BDA7631489AFE497EA437D92EDB274596960F3B7E112FAFE6F1F7F9329EE5BDAEC5308BBFAD2E2F5717CBD9665B7C8DE3551CB3649BB8A1035C4B055AB4C0D99340D891859DA8809F9CEB5651F4DAAA8568450D3D2E2AD346EC891415A4D2F208C139A91B8C6A5921AB4E503DE7F46C0577B60756991A2805B936DA7B6D0B9ABCA35018DC4EE8C1D7E3BA578A02DD60657372A35BC351F4CA6D6C575097F5A8589BFE49410EBF7AD0153C0A579D2639D037FFD43DE83F396F7EFEF7F2ED052C4AA3C9B2A08064C8120D5518DED991E8EC7B453D1A0F2AF88156F8D85B7F1150A6126A1A5199A6266EE9EAF0234BD24356CBA3A85C618CC2435694A94427B4BB2532048C501DB6C23E83473CE660808B877BD390966E4223014C0BB6810945B0D712548DB9B18ED89DE388D455821EE8E7580A4E48352D4AFF17A0CE48ED76E0C6658466AC31EE039FE0FB7B59B07100CF13E948E3EB28BE9E62B836365192B4711441B02FB2024C65E5A8B6B0C3C8105B619DD7FDA96525DD300DE2ACD0A8844F253A9C4863342917C9367AAB41491A43D0F9BC2FE82DF3EDD5D3B58E12742BB79F6F94228155C0F28ACA3DF4AEEBDDDAA81A2CF701C6E6F3EDC8F00BCEA43E1ADB8626E6733612E27709FB509C278F49F9B8DB97CB0BBAE65648CDF39B3D83D78E56550A2CD36CC3D7C97D9E9D77331316045F5E9D7D7E7B5FECB39C75F42B483C9D7F8D69337C49D68BF4EB223350110120F745EF1A6D2CB0F36A3EC4F6D0A9814D8BE6F115FB0D5CD7C3C651040000
+-->
+

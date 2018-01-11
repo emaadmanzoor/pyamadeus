@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" version="4.000" id="OTA2011B">
+  <xs:include schemaLocation="chameleon/OTA_HotelCommonTypes.xsd" />
+  <xs:annotation>
+    <xs:documentation xml:lang="en">All Schema files in the OpenTravel Alliance specification are made available according to the terms defined by the OpenTravel License Agreement at http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
+  </xs:annotation>
+  <xs:element name="OTA_HotelAvailRQ">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Requests availability of hotel properties by specific criteria that may include: dates, date ranges, price range, room types, regular and qualifying rates, and/or services and amenities. The availability message can be used to get an initial availability or to get availability for the purpose of modifying an existing reservation.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="POS" type="POS_Type" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Point of sale object.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="AvailRequestSegments">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="AvailRequestSegmentsType">
+                <xs:attribute name="MaximumWaitTime" type="xs:decimal" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The value of this attribute will be a decimal field identifying the maximum number of seconds the responding application has to respond to the request. For example, if a client requests 10 OTA 'AvailRequestSegment' items but can only wait up to 4.0 seconds max. If only 6 segments were collected within the time-frame, the client would only receive those 6 segments within one response message.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HotelReservationIDs" type="HotelReservationIDsType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Collection of Hotel Reservation IDs associated with a given reservation, used when asking for availability for the purpose of modifying an existing reservation.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="OTA_PayloadStdAttributes" />
+      <xs:attribute name="SummaryOnly" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A boolean flag that indicates the return of summary information in the response.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="SortOrder" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Defines the sort order of the returned property information.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="AlphaLength1to2">
+            <xs:enumeration value="A">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Ascending order.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Descending order.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">No sort/ random order.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="C">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Property code order.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Property name order.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CA">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Property code order, ascending.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CD">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Property code order, descending.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PA">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Property name order, ascending.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PD">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Property name order, descending.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RA">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Rates Ascending.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RD">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Rates descending.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="AvailRatesOnly" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A boolean flag that indicates the response should include ONLY those rates that are available in the date range specified, or whether rates that are NOT available should be shown. True returns only available rates; False returns all rates.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="OnRequestInd" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">When true, the response should include rooms with an availability status of 'on request'. When false, the response should not include rooms with an availability status of 'on request'.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="BestOnly" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A boolean flag that indicates the response message should send back only the best rate available at the hotel property, as there could be multiple room types and rates that meet the requested criteria (e.g.: rate range). Allowing that the term "best rate" is subjective, the intent means the lowest rate that meets the category of the input criteria, and may have the effect of limiting the return to one rate quote as opposed to multiples.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RateRangeOnly" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A boolean flag that indicates the response message should send back only those rates that are available within the range of the minimum and maximum amount specified.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ExactMatchOnly" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A boolean flag that indicates the response message should send back only those rates that are an exact match to the requested criteria.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="AllowPartialAvail" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A boolean flag that indicates the response message should include availability and rates  that do not span the complete stay.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RequestedCurrency" type="AlphaLength3" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The code specifying the currency in which the response should be sent. Use ISO 4217, three alpha code.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RequestedCurrencyIndicator" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">When true, indicates that response should only incude rates that match requested currency.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="IsModify" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">When true, indicates that this is an availibility request for a modification to an existing reservation.</xs:documentation>
+          <xs:documentation xml:lang="en">
+            <LegacyDefaultValue>false</LegacyDefaultValue>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="MaxResponsesGroup" />
+      <xs:attribute name="SearchCacheLevel" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Live" />
+            <xs:enumeration value="VeryRecent" />
+            <xs:enumeration value="LessRecent" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="HotelStayOnly" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A boolean flag that indicates the response message should return only HotelStay information. If true, no RoomStay information will be returned.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RateDetailsInd" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">If true, the response message should contain room rate details.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="MapRequestedGroup" />
+      <xs:attribute name="DuplicateInd" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">When true, indicates duplicate properties should be returned.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PricingMethod" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Indicates the type of pricing to return at the HotelStay level in the availability results, such as None and Average.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="None">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Do not include pricing information in the response.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Average">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Include the average available price in the response.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Lowest">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Include the lowest available price in the response.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Highest">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Include the highest available price in the response.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AvailRequestSegmentsType">
+    <xs:annotation>
+      <xs:documentation>A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AvailRequestSegment" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="HotelSearchCriteria" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Availability search criteria should be specified here for implementations using OpenTravel messages that are LATER than 2005B which was version 1.005 of this message, e.g. 2006A through the current specification.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="HotelSearchCriteriaType" />
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="StayDateRange" type="DateTimeSpanType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Range of dates, or fixed set of dates for Availability Request. Date range can also be specified by using start dates and number of nights (minimum, maximum or fixed). **This element is maintained at this level to support those who have implemented this message prior to 2005B. For new implementations consider using this element under HotelSearchCriteria.**</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="RateRange" minOccurs="0" maxOccurs="5">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Requested rate or rate range. Repeats to allow the identification of multiple ranges for multiple room stay candidates. *This element is maintained at this level to support those who have implemented this message prior to 2005B. For new implementations consider using this element under HotelSearchCriteria.**</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="RoomStayCandidateRPH" type="RPH_Type" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Used to associate a rate range with a room stay candidate.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attributeGroup ref="RateRangeGroup" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RatePlanCandidates" type="RatePlanCandidatesType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">**This element is maintained at this level to support those who have implemented this message prior to 2005B.  For new implementations consider using this element under HotelSearchCriteria.**</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Profiles" type="ProfilesType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">A collection of profile objects or unique IDs of profiles. **This element is maintained at this level to support those who have implemented this message prior to 2005B. For new implementations consider using this element under HotelSearchCriteria.**</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="RoomStayCandidates" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Collection of room stay candidates. **This element is maintained at this level to support those who have implemented this message prior to 2005B.  For new implementations consider using this element under HotelSearchCriteria.**</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="RoomStayCandidate" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Element used to identify available room products.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:complexContent>
+                        <xs:extension base="RoomStayCandidateType">
+                          <xs:attribute name="IsAlternate" type="xs:boolean" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Indicates the segment of the RoomStay is an alternate offer. Default=false.</xs:documentation>
+                              <xs:documentation xml:lang="en">
+                                <LegacyDefaultValue>false</LegacyDefaultValue>
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                        </xs:extension>
+                      </xs:complexContent>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element ref="TPA_Extensions" minOccurs="0" />
+          </xs:sequence>
+          <xs:attribute name="AvailReqType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An enumerated type that indicates whether the availability request is for a room or non-room product, such as amenities or other activities (e.g.: banquet, conference room, etc.) Values: Room,  NonRoom, Both.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="StringLength1to16">
+                <xs:enumeration value="Room" />
+                <xs:enumeration value="NonRoom" />
+                <xs:enumeration value="Both" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="MoreDataEchoToken" type="StringLength1to128">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The availability response returns the attribute if there were additional rates that could not fit within the availability response. The text value should be echoed in this availability request to indicate where to begin the next block of availability data.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attributeGroup ref="ResponseTypeGroup" />
+          <xs:attribute name="InfoSource" type="InfoSourceType" use="optional">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used to specify the source of the data being exchanged as determined by trading partners.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

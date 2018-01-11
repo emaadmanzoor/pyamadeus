@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with WSDLGenerator 1.0.0 by Amadeus SAS -->
+<!-- "Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved." -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://wsdl.amadeus.com/HotelAvailability_v2_v2" xmlns:int="http://wsdl.amadeus.com/HotelAvailability_v2" xmlns:awsse="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" name="NA9OTA_HotelAvailability_2.0_2.0" targetNamespace="http://wsdl.amadeus.com/HotelAvailability_v2_v2">
+  <wsdl:documentation>Versions: [interface: 2.0 ; technical: 2.0]</wsdl:documentation>
+  <wsdl:import location="HotelAvailability_2.0.wsdl" namespace="http://wsdl.amadeus.com/HotelAvailability_v2" />
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" schemaLocation="WBS_Session-2.0.xsd" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="Session_2.0">
+    <wsdl:part element="awsse:Session" name="session" />
+  </wsdl:message>
+  <wsdl:binding type="int:HotelAvailability_PT" name="HotelAvailability_Binding">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Hotel_CalendarView">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/Hotel_CalendarView_1.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_EnhancedPricing">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/Hotel_EnhancedPricing_2.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_EnhancedSingleAvail">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/Hotel_EnhancedSingleAvail_2.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_MultiAvailability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/Hotel_MultiAvailability_10.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_MultiSingleAvailability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/Hotel_MultiSingleAvailability_10.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HotelAvailability_Service">
+    <wsdl:port name="HotelAvailability_Port" binding="tns:HotelAvailability_Binding">
+      <soap:address location="https://nodeD1.production.webservices.amadeus.com" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+
+
+<!-- Build Key: 1F8B0800000000000000258DC10A83301044EF7EC51E5B8AB2D14B9B5BB06085D60A0A3DA776A58198484C05FFBE4B0B739937F0A622474147E31D4433D112F5344BC8511C5314A910D0BF3F6179E90D106521648150DDFA0317C4E4D19DAF50FD0D3EC04A6161910491618649690D39D0F36CCDF07B9070EF15340ADAE0FD089CD2BB81E6083B1EF6AC532D383D111B54573F1836EA94D42E5218F5C0F8E22359B56A63F5D3581337C833FC0299FC0058C3000000 -->

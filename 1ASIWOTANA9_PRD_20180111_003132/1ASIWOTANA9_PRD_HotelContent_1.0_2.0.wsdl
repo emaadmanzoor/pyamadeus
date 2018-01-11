@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with WSDLGenerator 1.0.0 by Amadeus SAS -->
+<!-- "Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved." -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://wsdl.amadeus.com/HotelContent_v1_v2" xmlns:int="http://wsdl.amadeus.com/HotelContent_v1" xmlns:awsse="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" name="NA9OTA_HotelContent_1.0_2.0" targetNamespace="http://wsdl.amadeus.com/HotelContent_v1_v2">
+  <wsdl:documentation>Versions: [interface: 1.0 ; technical: 2.0]</wsdl:documentation>
+  <wsdl:import location="HotelContent_1.0.wsdl" namespace="http://wsdl.amadeus.com/HotelContent_v1" />
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" schemaLocation="WBS_Session-2.0.xsd" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="Session_2.0">
+    <wsdl:part element="awsse:Session" name="session" />
+  </wsdl:message>
+  <wsdl:binding type="int:HotelContent_PT" name="HotelContent_Binding">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Hotel_ContentNotifReport">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/Hotel_ContentNotifReport_1.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_DescriptiveInfo">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/OTA_HotelDescriptiveInfoRQ_07.1_1A2007A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HotelContent_Service">
+    <wsdl:port name="HotelContent_Port" binding="tns:HotelContent_Binding">
+      <soap:address location="https://nodeD1.production.webservices.amadeus.com" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+
+
+<!-- Build Key: 1F8B0800000000000000258D410B82401484EFFE8A772C42799B97DADB62604299A0E079B1272DE8AEACAFA07FDFAB602E33C37C5392A768D9050FEC665AD9CE8B863DAA438A2A550ABAC733AE77FB06449D2B9D2394D76E270631E9DBD305CA3F214478515C05A441659861524C8E3CD86599DCF07BD070EB0CD4069A18C208A222F88116868D145BC19906BC9D4908A6AD7A096B734C2ACF14473B487C0E4C938C983C7F5F3E7F778A3BBE000000 -->

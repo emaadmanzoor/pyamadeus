@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://wsdl.amadeus.com/HotelAvailability_v2" xmlns:ota_2003_05="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://wsdl.amadeus.com/HotelAvailability_v2" name="HotelAvailability_2.0">
+  <wsdl:documentation>Version 2.0</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="OTA/2011B/OTA_HotelAvailRQ.xsd" />
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="OTA/2011B/OTA_HotelAvailRS.xsd" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="OTA_HotelAvailRQ_4.000">
+    <wsdl:part name="body" element="ota_2003_05:OTA_HotelAvailRQ" />
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelAvailRS_6.001">
+    <wsdl:part name="body" element="ota_2003_05:OTA_HotelAvailRS" />
+  </wsdl:message>
+  <wsdl:portType name="HotelAvailability_PT">
+    <wsdl:operation name="Hotel_CalendarView">
+      <wsdl:documentation>Version 1.0</wsdl:documentation>
+      <wsdl:input message="tns:OTA_HotelAvailRQ_4.000" />
+      <wsdl:output message="tns:OTA_HotelAvailRS_6.001" />
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_EnhancedPricing">
+      <wsdl:documentation>Version 2.0</wsdl:documentation>
+      <wsdl:input message="tns:OTA_HotelAvailRQ_4.000" />
+      <wsdl:output message="tns:OTA_HotelAvailRS_6.001" />
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_EnhancedSingleAvail">
+      <wsdl:documentation>Version 2.0</wsdl:documentation>
+      <wsdl:input message="tns:OTA_HotelAvailRQ_4.000" />
+      <wsdl:output message="tns:OTA_HotelAvailRS_6.001" />
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_MultiAvailability">
+      <wsdl:documentation>Version 10.0</wsdl:documentation>
+      <wsdl:input message="tns:OTA_HotelAvailRQ_4.000" />
+      <wsdl:output message="tns:OTA_HotelAvailRS_6.001" />
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_MultiSingleAvailability">
+      <wsdl:documentation>Version 10.0</wsdl:documentation>
+      <wsdl:input message="tns:OTA_HotelAvailRQ_4.000" />
+      <wsdl:output message="tns:OTA_HotelAvailRS_6.001" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
+

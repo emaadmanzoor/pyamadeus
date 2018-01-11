@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/RCFSRQ_05_2_1A" xmlns="http://xml.amadeus.com/RCFSRQ_05_2_1A" elementFormDefault="qualified">
+  <xs:element name="Car_RateInformationFromCarSegment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="pnrRecLoc" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="reservation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="companyId">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="controlNumber">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an..16</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="16" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="controlType">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an1</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="1" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="bookingIdentifier">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="referenceType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                    </xs:annotation>
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="uniqueReference">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Format limitations: an..5</xs:documentation>
+                    </xs:annotation>
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="categorySelection" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="selectionDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="option">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="otherSelectionDetails" minOccurs="0" maxOccurs="2">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:sequence>
+                      <xs:element name="option">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                            </xs:annotation>
+                            <xs:minLength value="1" />
+                            <xs:maxLength value="3" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="currency" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="currencyDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="currencyQualifier">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="displayCurrency" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 4.1 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B080000000000000085903F6FC23010C5777F0AF6AAC46DC5904819224198482BA0EA885CFB004BFE93FA9CAA11E2BBF79C848AAD9287E7BBF37B3FDF7AD5ACB6D57EB53CBC36E5337FE28F7C4167F601CA012AD1CF785E2C5E0A9ECFD69BFD03E705E7CC090BD80A09E525F62D5C0F976F08A8BD2315C080C054132770B2BF32E9AD0517B13C0A83C08C77A76450C6D00153BEFB34B083AF8E86E14D44791E1B476D60DB19289DAF490EF7E1D91099D43FB18488A49710853648360EA8164E3071FC58B327A7B1516DAA648BF52D85A13C83158900692F3CCF78CED288DA0D8DC9A4F5DAC506E21DF8945BE1E03E8E49AF00214E149F04DAFCADF01C635B6419E1CC85150A3A9CD3C63216BC8F779F6568458849BE3B2D75EC27EB91136B1F2AA3C9186F14F4D35A8351B8F321829AC67F01E6AE9B70F0010000
+-->
+

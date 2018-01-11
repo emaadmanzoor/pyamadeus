@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TCTMIQ_15_1_1A" xmlns="http://xml.amadeus.com/TCTMIQ_15_1_1A" elementFormDefault="qualified">
+  <xs:element name="DocIssuance_IssueCombined">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Ticket issuance request
+TCTMIQ (TTP/TTM) request message
+Ticketing TicKeT Issuance Query  This TCTMIQ supports the issuance of the Miscellaneous Documents and of the Chargeable Services into EMD.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="agentInfo" minOccurs="0" type="TicketAgentInfoTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">agent code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="overrideDate" minOccurs="0" type="StructuredDateTimeInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">override past date TST</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="selection" minOccurs="0" maxOccurs="2" type="ReferenceInfoType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Segment, TST or TSM selection</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="paxSelection" minOccurs="0" maxOccurs="99" type="ReferenceInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Passenger Selection</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="stock" minOccurs="0" type="StockInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">stock reference</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="optionGroup" minOccurs="0" maxOccurs="99">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Contains Options without parameters and their sub-options</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="switches" type="StatusTypeI">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">contains a list of switches, i.e options that do not take any parameters</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="subCompoundOptions" minOccurs="0" maxOccurs="99" type="AttributeType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Contains sub-options that do take parameters.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="overrideAlternativeDate" minOccurs="0" type="StructuredDateTimeInformationType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">To override Alternative date for Invoice printing</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="infantOrAdultAssociation" minOccurs="0" type="TravellerInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Infant or Adult passenger</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="otherCompoundOptions" minOccurs="0" maxOccurs="99" type="CodedAttributeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AttributeInformationTypeU">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify the type of attribute and the attribute</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeType" type="AlphaNumericString_Length1To25">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">provides the sub-option name: EMPR Email to the specified address EMPRA Email to the address specified in the APE element EMPRN Email to addresses associated to nickname FAXR Fax to Specified Number FAXA Fax to Number specified in AP element of the PNR FAXN Fax to number associated to nickname LP Issuance langage PALT Printer Options / Alternate printer PCIH Printer Options / Customize Itinerary Header PDCT Printer Options / Document Type PDPR Printer Options / Distribution Profile PDUP Printer Options / Duplicate Itinerary PMNE Printer Options / Mnemonic PNUM Printer Options / Number POFP Printer Options / Office profile GEN     Print Media option: Print in A4 SSP     Print Media option: print in SSP ATB     Print Media option: print on ATB DOC     Select the specified document type to print SCH     Retreive the associated EMD to the issued tickets or the associated Tickets to the issued EMD LA      Printin the specified language.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attributeDescription" minOccurs="0" type="AlphaNumericString_Length1To256">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">provides the sub-option value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttributeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to have tag value without code list for tag</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="criteriaDetails" type="AttributeInformationTypeU">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Details for the message criteria (name, value).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodedAttributeInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Convey coded key and corresponding value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeType" type="AlphaNumericString_Length1To5">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">provides the option name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attributeDescription" minOccurs="0" type="AlphaNumericString_Length1To256">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">provides a description for the attribute (option value)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodedAttributeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to have tag value without code list for tag</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeDetails" type="CodedAttributeInformationType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">provides details for the Attribute</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InternalIDDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify an internal identification and the type of identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="inhouseId" type="AlphaNumericString_Length1To9">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">agent code or agent sine</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Agent qualifier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceInfoType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide specific reference identification for a traveller.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="referenceDetails" minOccurs="0" maxOccurs="99" type="ReferencingDetailsType_270188C">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reference list (segment tattoos or PNR lines or TST number or Coupon number)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Dummy.NET" minOccurs="0" maxOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to convey the passenger references.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="passengerReference" type="ReferencingDetailsType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Used to convey the passenger tatoo or display number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferencingDetailsType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reference qualifier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="value" type="AlphaNumericString_Length1To35">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Passenger tattoo.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferencingDetailsType_270188C">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reference qualifier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="value" minOccurs="0" type="AlphaNumericString_Length1To35">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reference value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a status, the action to be taken, and an additional qualification of the status.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="indicator" type="AlphaNumericString_Length1To3" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify a status and related information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="statusDetails" type="StatusDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Options tags group</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StockInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Details releated to stock</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="stockTicketNumberDetails" type="StockTicketNumberDetailsType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To convey Stock type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StockTicketNumberDetailsType">
+    <xs:sequence>
+      <xs:element name="qualifier" type="AlphaNumericString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Stock Qualifier: 'S' stock control number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="controlNumber" minOccurs="0" type="AlphaNumericString_Length1To35">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Stock control number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StructuredDateTimeInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">This segment is designed to convey date/time in a structured way.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="businessSemantic" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Date format</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateTime" minOccurs="0" type="StructuredDateTimeType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Convey date and/or time.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StructuredDateTimeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Store date and time in a structured way</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="year" type="Year_YYYY">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Year number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="month" type="Month_mM">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Month number in the year ( begins to 1 )</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="day" type="Day_nN">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Day number in the month ( begins to 1 )</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TicketAgentInfoTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To convey travel agent and system identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="internalIdDetails" type="InternalIDDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">agent ID details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravellerInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a PAX information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="paxDetails" type="TravellerSurnameInformationType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Detail if the discount is adult only or infant only</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravellerSurnameInformationType">
+    <xs:sequence>
+      <xs:element name="type" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Customer type: A=adult IN = infant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaNumericString_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To9">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..9</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To35">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..35</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an1</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To25">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..25</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="25" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To256">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..256</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="256" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To2">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To5">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..5</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Year_YYYY">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Value of the year. Example: 2003</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Month_mM">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Value of the month. Only significant digits are mandatory. Example: 7</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0?[1-9]|1[0-2])" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Day_nN">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Value of the day in the  month. Only significant digits are mandatory. Example: 7</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0?[1-9]|[1-2][0-9]|3[0-1])" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.1.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095544D6FDB300CBDEB5708BBEC30C471BA15DB02E8E0D569576C69BBD4BB050814894984CA9227CA45BDA2FF7D94EDACDD69DB2520299A1FEF3DE66271B55815D5A2DC5C5F89937C763AC93F4CF2B77CE99D961DCFDFCF4F6773F22F96D59B3C9FE7392B9645EC1AC07363C1C91A0405369F241A55A570F6809A6D25C215BD61231588438CCD7C3A7DA86D266BA9A1C54CF97ACAB6ADD3164A13C4142146E3F638D5462153075077B7F45B4B11430B4C790D9482C27997BCBA0647DEF85637D275A99D70ADB51468BA60F687285E15433B7E137C130C44193A2E9DE667DEED8CA61A465A7EE9763ED4321AEFE6BC75B28D071FCC4FD0BC45E8D3B541653DB60138C66054B41DA76FB646538D8C136C399FF06333CC6486C9B796AFD21CC857347DB8079DBD621A76B2B5F12234092E2D76D22230EDDBAD855BF8D182537023A33A8C2FE03EFD1398E09E731E13414F9BC77B08485B9115C00295214BEEA943F7C47644DFAAB584994F4CF67E4F67FF71B2FE52C07A25ED08B9F57B4D3496F3F5E74551AE17DAECA48A95F716D78B6A531A8CD2C533628AF823E6D64B19EE20313EE460CF35AEBFFA3DD572FB7E10A3AF9DED580D610F2318BD7D6EC06ABCF521FE868F16479AABC084E99FB192583776548EFB2F881A6F5CBC8238D0D18B2D781F5F20D4FB49C0191B56488862BAA37C9ACFC6189EFB505843B547C5262D1805589292A837897240116B1962AAFBDD196562372E128374687B7D123E82B0C6E958B92A96D3470DD6D01A9204F494D12B4BE3E997E74362393BDECC5093223D54FD251BA7D803DA78DDC6A68DE7DE6A082205189B4C96038CAF919BE73B994CD800929815EC457F51DC149BD2AB4BC456929037B3D377A4ED5A1A27AA2F1583878668DB48DC948B0B51ADBE2F8E347119408A19FDBF8C01519D55CBCB6FACA1C3307820AA07020696C40959F7265127DE0F08C91E4CF1B27B328036DF1A079A1D5913955124BE63D62A1D1D46362A41E41FD92F6F682F5515050000
+-->
+

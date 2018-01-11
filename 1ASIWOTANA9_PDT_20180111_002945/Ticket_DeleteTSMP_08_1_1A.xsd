@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TTSMDQ_08_1_1A" xmlns="http://xml.amadeus.com/TTSMDQ_08_1_1A" elementFormDefault="qualified">
+  <xs:element name="Ticket_DeleteTSMP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="criteriaTattoo" minOccurs="0" maxOccurs="198">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="referenceDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="type">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="value">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..17</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="17" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B08000000000000009593C16EDB300C86EF7A8ADC7618123B6D81AD0174F06A273B2C699AB8B7008662318E5059F244B9A851F4DD47D90ED60203B6014140D2F44FF223BDCA36D92EC9B3B4B8DFF0AB787E3D8DE9379F2C9D92A29BC45F16F39BC5F5F564B5CE3FC7F1228E59B24E7CD7002E9506236AE0EC2810366461234AE067EF9B4514BDD47A266A21A1C55969EB881D5B2335A4CAF108C17B652A8CA42A919567289FF6F45F0BEE5D0BACB4122805B9B12678750D86BC93D0D8BB8D305DA8C74DAB35059ACEA9EAEC0757C249B4DAAF5C935397725094B63D6AD8C3CF164C095BE1CBF32807E6DB3F750FE677CE6B98FFAD787D0687CA1AB21C682019B2444515BA3776223ABB56538F3680EAFD9E56FF72B0FE22A06D29F438A2B695246EE9E2F03D4BD24326D549943EB756E321CB8B54A117C6DF11190246A80E6BE19E20201E72B0878B871FB6222D53F58DF4606A70158C287A7BA9404BDC5BE789DD258E485D2518807E8CA5E085D2E3A2CC7F016AAC327E037E5846DF8CB3D6BFE3D3FBE15E666C1820F0443AD2F8368A6FC7182EAD4BB4226D1C4410DCB32A0153557AAA2D5C3730C45A381F741F8D2A95EFC641BC1306B508A9448713698C46E53C5947AF12B4A231049DCFDB8C9EB2D09E1CAF7590A05BB9FB78A314E959F5585E50FBFBD637AD5F5A2DC1F110606C3A5D0F0C3FE14499937575DFC474CA06427C9EB077C579B24D8A5C95B4D6E2F6265C742D94E1DB871D839786D655082CD26CC5F3DD637659CF443810FCEAE6E2F33CDFAFD307D6D0D7A0F07CF93AC6E5F03959CF2A6C8C5F0D6044CF908F7553CAF340125B7659D21F1E8D4BE7F157F60BD1758B925D040000
+-->
+

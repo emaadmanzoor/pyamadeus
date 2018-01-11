@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TTSTRQ_15_1_1A" xmlns="http://xml.amadeus.com/TTSTRQ_15_1_1A" elementFormDefault="qualified">
+  <xs:element name="Ticket_DisplayTST">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Get TST information from PNR query
+Get TST information query
+T   : Ticketing TST : Transitional Stored Ticket R   : Read Q   : Query</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="displayMode" type="CodedAttributeType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">It can be: - 'ALL' - all TSTs are displayed; - 'SEL' - only the information corresponding to the TST/passenger selection is displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="pnrLocatorData" minOccurs="0" type="ReservationControlInformationTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">PNR record locator information for this transaction. This PNR record locator is used for tracing purpose, no internal retrieve.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="scrollingInformation" minOccurs="0" type="ActionDetailsTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Scrolling information.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tstReference" minOccurs="0" maxOccurs="1980" type="ItemReferencesAndVersionsType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Used to get TST information for selected TST references. As we can have 10 TST per Pax, 99 passenger per PNR, and a TST split with the Infant , the max number of TST is 1980.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="psaInformation" minOccurs="0" type="ReferenceInformationTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Passenger/segment references information about TST(s) to retrieve. - Passenger reference specified : all the TSTs concerning this passenger reference are returned. - Passenger/segment reference : only the TST having this passenger/segment association is returned.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ActionDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the action that should be taken on a selected reference number.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nextListInformation" minOccurs="0" type="ReferenceTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Information on next list of TSTs to return.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodedAttributeInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Convey coded key and corresponding value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeType" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">provides the attribute Type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodedAttributeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to specify the selection of the TSTs to be displayed/deleted.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeDetails" type="CodedAttributeInformationType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">provides details for the Attribute</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemReferencesAndVersionsType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Exchange and link unique identifiers</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="referenceType" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">qualifies the type of the reference used. Code set to define</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="uniqueReference" minOccurs="0" type="NumericInteger_Length1To5">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Tattoo number (It is in fact the Tst Display Number)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="iDDescription" minOccurs="0" type="UniqueIdDescriptionType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Gives the TST ID number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceInformationTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide specific reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="refDetails" minOccurs="0" maxOccurs="99" type="ReferencingDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Passenger/segment/TST reference details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify which number in a sequence of references and/or the reference number.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="remainingInformation" minOccurs="0" type="NumericInteger_Length1To5">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">In case of query specifies the number of TSTs to get in reply. In case of response specifies the number of TSTs remaining.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="remainingReference" minOccurs="0" type="AlphaNumericString_Length1To5">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">In case of first query specifies the value of  this field in the last reply. In case of other queries specifies the last reference returned in the previous list. In case of reply specifies the last TST reference of the list. In case of last reply the value of this field set in the first query is sent.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferencingDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="refQualifier" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Qualifyer of the reference (Pax/Seg/Tst)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="refNumber" minOccurs="0" type="NumericInteger_Length1To5">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Passenger/segment/TST reference number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReservationControlInformationDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the information required to identify a reservation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="controlNumber" type="AlphaNumericString_Length1To20">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Record locator.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReservationControlInformationTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a reference to a reservation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reservationInformation" type="ReservationControlInformationDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reservation control information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UniqueIdDescriptionType">
+    <xs:sequence>
+      <xs:element name="iDSequenceNumber" type="NumericInteger_Length1To11">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The TST Id Number : The Id number allows to determine a TST in the single manner.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaNumericString_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length1To5">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n..5</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,5}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To20">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..20</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To5">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..5</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length1To11">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n..11</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,11}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.1.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095534B6FDB300CBEEB5708BDEC30C4715AB41802E8E0368F0D58FA48DD5B8040959844A82C79A25CD42BFADF47D9CEDA9DB65D0C92A2F9F8BE8FCBF9F57C5D94F3D9F6E65A9CE693F3517E31CABFF095775AB67C72363D3F9DE613BE5C959FF37C9AE7AC5815B1AD0117C6829315080A6C2F251A55A670F6829A3D4A846B7AC35A2A108718EBE978FC52D94C5652438399F2D5983D364E5B989920C608311AB7C7B1360A993A807ABAA76F25450C0D30E535500A0AE75DF2AA0A1C79C35B554BD7A676C235D652A06E83D91FA23829FA76FC36F83A188832B45C3ACDAFBCDB194D358CB4FC9BDBF950C968BC9BF2C6C9261E7C303F41F306A14BD70695F5D804E0188351D1B69CFE79349A6A649C60CBF9881F9B6126334CBEB57C9DE640BEA6E9C333E8EC8469D8C9C6C665A8135C5AECA44560DA378F16EEE147034EC1AD8CEA30BC80BBFC2730C1BDE7BC2682DEB6AFCF1090B6222B80052A4396DC5387F68DED88BE756309339F98ECFC8ECEEEE764FDA580F54ADA0172EBF79A689C4D375FE7C56C33D76627552CBDB7B89997DB99C1285DBC22A6883F626EB392E10912E37D0E765CE3E6BBDF532DB7EF0631FAC6D9965510F63080D1D90B0356E3BD0FF1377CB438D25C05264CFF8CCD88756307E5B8FF82A8F6C6C56B883D1D9DD882F7F103429D9F049CB17E858428A63BCAC7F96488E1C287C21AAA3D283669C128C01929897A93287B14B19221A6BA0FCE2813DB619118A443DBE993F01184358E87CA65B11ABF6AB086D69024A0B78C5E591A4F7F3C1F12CBD5F166FA9A14E9A0EA2ED938C55ED0C69B26D64D5C78AB218814606C345AF5307E426EDEEF6434623D486252B00FFD45715B6C4BA388DBEDE4FC8C645D49E344795F3278A989B1ADC4ED6CBE14E5FA617E6488CB00529C5E1C7D5152FEFA8ED57412060F44720F7DCF8F9890F56C12696476D8C80E4631F425B1D556B6A9E79127B1845862FC70E88BE0AB5B17EE1A082D1B34202667EC171743C51B0F050000
+-->
+

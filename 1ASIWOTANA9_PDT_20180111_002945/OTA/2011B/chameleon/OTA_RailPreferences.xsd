@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+elementFormDefault="qualified" 
+version="3.001" 
+id="OTA2003A2011B">
+	<xs:include schemaLocation="OTA_CommonPrefs.xsd"/>
+	<xs:include schemaLocation="OTA_RailCommonTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="en">All Schema files in the OpenTravel Alliance specification are made available according to the terms defined by the OpenTravel License Agreement at http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
+	</xs:annotation>
+	<xs:attributeGroup name="TrainPrefGroup">
+		<xs:annotation>
+			<xs:documentation source="Use" xml:lang="en">Indicates preferences for certain types of trains, such as connections or stopovers, when used for a specific travel situation.</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="PreferLevelGroup"/>
+		<xs:attribute name="TrainType" type="OTA_CodeType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Refer to OpenTravel Code List Train Type Code (TTC).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="MaxConnections" type="xs:nonNegativeInteger" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Indicates that if connection is chosen, then this attribute defines the maximum number of connections preferred.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="DirectAndNonStopOnlyInd" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">If true, direct and non-stop flights are requested.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="NonStopsOnlyInd" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">If true, only non-stop flights are requested.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="RoutingType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Specifies the travel routing preference.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="Normal">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">No special conditions.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Mirror">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Outbound and inbound route of travel must be the same.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="SameOperatorOnlyInd" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Same carrier/operator only.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="CodeGroupPref">
+		<xs:annotation>
+			<xs:documentation source="Use" xml:lang="en">Specifies preference level for the item identified by the code.</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="CodeGroup"/>
+		<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="LocationPrefType">
+		<xs:annotation>
+			<xs:documentation source="Use" xml:lang="en">Location preference.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="LocationType">
+				<xs:attributeGroup ref="PreferLevelGroup"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RailPrefType">
+		<xs:annotation>
+			<xs:documentation source="Use" xml:lang="en">A collection of rail preferences.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LoyaltyPref" type="LoyaltyPrefType" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred loyalty program(s).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperatorPref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred rail operator network code(s).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="NetworkCodeType">
+							<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+									<xs:documentation xml:lang="en">
+										<LegacyDefaultValue>Preferred</LegacyDefaultValue>
+									</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="RPH" type="RPH_Type" use="optional">
+								<xs:annotation>
+									<xs:documentation source="Use" xml:lang="en">A unique ID (reference place holder) used to identify this rail operator in other elements within this schema.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VendorPref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Specifies any preferences in terms of the company operating the train service. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="CompanyShortName" type="StringLength1to32" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Used to provide the company common name.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Division" type="StringLength1to32" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">The division name or ID with which the contact is associated.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Department" type="StringLength1to32" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">The department name or ID with which the contact is associated.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+							<xs:documentation xml:lang="en">
+								<LegacyDefaultValue>Preferred</LegacyDefaultValue>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="RPH" type="RPH_Type" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">A reference pointer used to identify an rail operator.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PaymentFormPref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred form(s) of payment.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="PaymentFormType">
+							<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+									<xs:documentation xml:lang="en">
+										<LegacyDefaultValue>Preferred</LegacyDefaultValue>
+									</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OriginStationPref" type="LocationPrefType" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred origination station location(s) for travel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationStationPref" type="LocationPrefType" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred destination station location(s) for travel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConnectionPref" type="LocationPrefType" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred connection location(s).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FareRestrictPref" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred fare restriction(s).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FareRestriction" type="OTA_CodeType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Identifies the type of fare restriction, such as None, Advance Purchase and Change Penalties. Refer to OpenTravel Code List Fare Restriction (FAR).</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attributeGroup ref="DateTimeSpanGroup"/>
+					<xs:attribute name="RefundableInd" type="xs:boolean" use="optional">
+						<xs:annotation>
+							<xs:documentation source="Use" xml:lang="en">If true, refundable fares are preferred.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FarePref" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Preferred fare preferences.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="Code" type="CodeOrStringType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Code indicating the type of fare preference (e.g., FM=commission, FD=fare discount). May be used to represent a class code.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Description" type="StringLength1to128" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Free text describing the fare preference.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="VendorPrefRPH" type="ListOfRPH" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Reference to one or more rail operators.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="RateCategoryCode" type="OTA_CodeType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Provides a rate category for the fare preference. Refer to OpenTravel code list Rate Category (RTC).</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="TransferAction" type="TransferActionType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Indicates under what conditions this element will be transfered to the booking.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FareBasisCode" type="StringLength1to16" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">A fare basis code.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TrainPref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Train characteristic preferences.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TransportModesPref" minOccurs="0" maxOccurs="5">
+							<xs:annotation>
+								<xs:documentation source="Use" xml:lang="en">Additional modes of transportation prefences, e.g. bus.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attributeGroup ref="CodeGroupPref"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attributeGroup ref="TrainPrefGroup">
+						<xs:annotation>
+							<xs:documentation>Indicates preferences for certain types of transfer, such as connections or stopovers, when used for a specific travel situation.</xs:documentation>
+						</xs:annotation>
+					</xs:attributeGroup>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AmenityPref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Amenity preferences.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attributeGroup ref="CodeGroupPref"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EquipmentPref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation>Equipment preferences.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attributeGroup ref="CodeGroupPref"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AccommodationPref" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Accommodation preferences.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="RailAccommDetailType">
+							<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+									<xs:documentation xml:lang="en">
+										<LegacyDefaultValue>Preferred</LegacyDefaultValue>
+									</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AncillaryServicePref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Specifies preferences of any service or product offered in conjunction with a basic rail accommodation, such as vehicle transport, pet transport and restaurant car service. Refer to OpenTravel Code List Rail Ancillary Service (RAN).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AncillaryServiceCode" type="OTA_CodeType" use="optional">
+						<xs:annotation>
+							<xs:documentation source="Use" xml:lang="en">An ancillary code list item from the OpenTravel Rail Ancillary Service Code(RAN) code list.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FoodAllergies" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation source="Use" xml:lang="en">Food allergies of passenger.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+						<xs:annotation>
+							<xs:documentation source="Use" xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Remark" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation source="Use" xml:lang="en">Remarks about ancillary services and products.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PassengerInfoPref" minOccurs="0" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Occupation, passenger qualifying codes, rate qualifiers and disability requirement preferences.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="RailPassengerCategoryType">
+							<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketDistribPref" type="TicketDistribPrefType" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Tcket distribution preferences.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SSR_Pref" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Special Service Request preferences.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="PreferLevel" type="PreferLevelType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Used to indicate a level of preference for an associated item.</xs:documentation>
+							<xs:documentation xml:lang="en">
+								<LegacyDefaultValue>Preferred</LegacyDefaultValue>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="SSR_Code" type="AlphaLength4">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Code of the special service request to be used for this rail travel situation. Refers to standard industry code list.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="VendorCode" type="StringLength1to8" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Indicates to which rail operator the element is associated.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NumberInParty" type="xs:positiveInteger" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Number of passengers that will benefit from the request.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="DefaultStatusCode" type="OTA_CodeType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">The default status from the rail operators. Refer to the OpenTravel Code List named Status (STS).</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Remark" type="StringLength1to128" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Text that description of the service request.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="LookupKey" type="StringLength1to64" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Database key to retrieve the other part of the card number.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="VendorPrefRPH" type="ListOfRPH" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Reference to one or more rail operators in VendorPref.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="TransferActionType" type="TransferActionType" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Indicates in what condition the element must be trasnferred to the booking.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ADA_Requirement">
+						<xs:annotation>
+							<xs:documentation>Passenger ADA requirements. Refer to OpenTravel Disability Feature Code (PHY) code list.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OSI_Pref" minOccurs="0" maxOccurs="99">
+				<xs:annotation>
+					<xs:documentation source="Use" xml:lang="en">Other Service Information of the rail operators.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TravelerRefNumber" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">One or more travelers to whom this request applies</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="RPH" type="RPH_Type" use="optional">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">A unique reference for the traveler.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="SurnameRefNumber" type="StringLength1to8" use="optional">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">Used to identify and associate travelers with the same surname. </xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Operator" type="CompanyNameType">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">The operators to which the OSI applies</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Text" type="StringLength1to64">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">The OSI text.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="Code" type="AlphaLength4" use="optional">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">A proprietary code used between systems to identify an Other Service Information (OSI) item.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="TPA_Extensions" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="PrivacyGroup"/>
+		<xs:attributeGroup ref="PreferLevelGroup"/>
+		<xs:attributeGroup ref="SmokingIndicatorGroup"/>
+		<xs:attribute name="RailTicketType" type="TicketType" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Type of rail ticket preferred for this collection.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

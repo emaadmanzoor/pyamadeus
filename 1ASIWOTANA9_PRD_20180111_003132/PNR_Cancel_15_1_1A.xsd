@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/PNRXCL_15_1_1A" xmlns="http://xml.amadeus.com/PNRXCL_15_1_1A" elementFormDefault="qualified">
+  <xs:element name="PNR_Cancel">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">PNR CANCEL
+PNR CANCEL
+pnr cancel</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="reservationInfo" minOccurs="0" type="ReservationControlInformationType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">reservation control informations</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="pnrActions" type="OptionalPNRActionsType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">specific actions to be processed on PNR</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="cancelElements" minOccurs="0" maxOccurs="4" type="CancelPNRElementType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">CANCEL PNR ELEMENT</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CancelPNRElementType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To cancel a PNR element</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="entryType" type="AMA_EDICodesetType_Length1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Cancel type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="element" minOccurs="0" maxOccurs="999" type="ElementIdentificationType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Element data</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ElementIdentificationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">ELEMENT DATA</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="identifier" minOccurs="0" type="AMA_EDICodesetType_Length1to3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Element qualifier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="number" minOccurs="0" type="NumericInteger_Length1To5">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">element number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="subElement" minOccurs="0" type="NumericInteger_Length1To5">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">sub element number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OptionalPNRActionsType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify specific Actions to be processed on PNR.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="optionCode" maxOccurs="40" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Processing options. Only the option 0, 10, 11 and 20 are supported.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReservationControlInformationDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">RESERVATION CONTROL INFORMATION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="controlNumber" type="AlphaNumericString_Length1To20">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">profile or PNR record locator</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReservationControlInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Reservation control information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reservation" type="ReservationControlInformationDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">record information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="NumericInteger_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,3}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To20">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..20</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length1To5">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n..5</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,5}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AMA_EDICodesetType_Length1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used for codes in the AMADEUS code tables. Code Length is one alphanumeric character.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Z]" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AMA_EDICodesetType_Length1to3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used for codes in the AMADEUS code tables. Code Length is three alphanumeric characters.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Z]{1,3}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.1.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095534D6FDB300CBDEB5708BDEC30C4B1BB750302E8E0266937A0498334C57608602816930895254F948B7A45FFFB28DB59BBD3B68B4152343FDE7BBC9E2FE7EB7C339F15B74B719E6617A32C1DA59FF937501650C99667D9244B271F3EF1EBC5E67D9A4ED294E58B3CB435E095366065058202C5A5445D6E62387942C5761261496F58CB12C431847A321E3F5526919554D06052BA6ACC768D550666DA8B314208DA1E70AC7489AC3C42F97047DF4A8AE01B60A553402928ACB3D1AB2AB0E40D6F552D6D1BDB09DB184381BAF5FA700CE22CEFDBF19577B5D710A46FB9B48A4F9DDD6B4535B434FCABDD3B5FC9A09D9DF0C6CA261C9DD73F41F106A14B571A4BE3B0F1C031785D06D372FA67A715D548382197F2113F35C34426187D63F83ACE817C4DD3FB4750C91953B0978D09D7BE8E7029B197068129D7EC0CDCC18F066C092B19CAE3F002F6F29FC004FB9AF31C097A299E1FC1236D4596070354862C79A00EED0BDB137DEBC610662E32D9F91D9DDDCFD1FA4B01E34A6906C88D3B28A2514DB65FE6F96C3B577A2FCBB071CEE076BE29661A83B4614A4C117FC4DC7621FD0344C6FB1CECB8C6ED8D3B502D7BE806D1EAD69A9655E00F3080D1D9571A8CC23BE7C36FF86871A4B9728C98FE199B11EBDA0CCAB1FF0551EDB40D4B083D1D9DD8BC73E10D429D1F059CB07E858828C6534AC76936C4F0CAF9DC68AA3D28366A419780335212F52651F62862257D8875EFAD2E756887458297164DA74FC24710D6381E2A6FF2C5F85981D1B4862401BD24F4CAE278EAEDF99058A6A79BE96B52A483AABB646D4BF68426DC36A16EC295330ABC8801C646A3450FE33BE4FAF54E4623D68324B29CBDE92FF2555EAC96EB22BBB8204D57525BB15A660C9E6AA2AB9058CCE6D762B3BE9F9FE8E1D28314D9C7934FE9EBEFD31B56D33D683C12C33DEE3D39E29CAC471D1913590F8CEC308CBF155349B763D8891DB1B27E080D2CC73EBF009C083EC0F4040000
+-->
+

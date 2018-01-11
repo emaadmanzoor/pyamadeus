@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TFRERQ_13_1_1A" xmlns="http://xml.amadeus.com/TFRERQ_13_1_1A" elementFormDefault="qualified">
+  <xs:element name="Ticket_DisplayTSMFareElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fareElementTattoo" maxOccurs="10">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="reference">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="qualifier">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..10</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="10" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="number">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: n..35</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:decimal" />
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B080000000000000095934D6FDB300C86EFFA15B9ED302476920D5D03E8E0354E0E5BD22E71B1CB0043B51847A82C79A29CD528F2DF47D9CED65EF67109489A79493EA4D6E936DD2559BACC6FB77C164FE7E3F8FD78763DFA0AD2004AD18EE2ABC5BBABC5ECC368BDC9DEC6F1228E59B2497C5B03AE9406232AE0EC41206CC9C25A14C08FDED78B287AAAF4445442428393C256117B688CD4B0548E4708DE2B5362245581AC3842F1B8A7DF4A70EF1A6085954029C88D35C1AB2A30E41D84C6CEAD8569433D6E1AAD2950B74E9547DFBB120EA2D17EEDEA8CBA94BDA2B4CD83863D7C6FC01470277C711CE4C07CFCA7EEC1FCCE790EF39FF3E7133854D690E54003C990254AAAD09ED981E8EC1A4D3DDA00AAF33B5ADD9F83F517016D0BA18711B52D65E0E6A0B21EA2EA477402A90EA2F0B9845394F67666ADC628CDF2A5422F8CBF21520490D0451BE11E2120EF73B0838DDF3EDB92B44DD935D681AAC09530A0E9EC95022D716F9D279697382275996000FC3AB6042F941E1667FE0B586D95F15BF0FD72BA669CB5FE05AFCE0FF73361FD00812FD2DDC6D7517C3DC470655DA21569632F82E04EAA005CAAC2536DE1DA9E2956C2F9A07B6F54A17C3B0CE29D30A84548253A9CC8FFC295259BE85982563486A0733A4FE82B0BEDC9E17A7B09BA9D9BD7374B918E5587E509B5BF6D7CDDF895D5121C0F01C6C6E34DCFF00D8E94395857754D8CC7AC27C4A7097B519C2777499EA982D69A4FE773BAF04A28C3B34F1983A79AD6950BCC97E99A67BBFBF4B29E917020F8941EF110E0D96A97EEBEB09A9E87C2E3E5B90CDBE153B24E2AAC8CCF7A32A283C887C27468B5166DB6DFAC4839D51086669785FD396BB8053E9DB39FC9804E7787040000
+-->
+

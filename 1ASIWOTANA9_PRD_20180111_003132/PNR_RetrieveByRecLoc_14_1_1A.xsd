@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/PRETRQ_14_1_1A" xmlns="http://xml.amadeus.com/PRETRQ_14_1_1A" elementFormDefault="qualified">
+  <xs:element name="PNR_RetrieveByRecLoc">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">PNR Retrieval Message
+PNR Retrieval Message
+Retrieve the SBR whose RecLoc is provided. If no RecLoc is provided, retrieves the SBR currently in AAA.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="sbrRecLoc" type="ReservationControlInformationTypeI">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">The RecLoc of the SBR to retrieve.  If not present, the request retrieves the SBR curently in AAA.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ReservationControlInformationDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the information required to identify a reservation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="controlNumber" type="AlphaNumericString_Length1To20">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The Record Locator</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReservationControlInformationTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a reference to a reservation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reservation" type="ReservationControlInformationDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">reservation control information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaNumericString_Length1To20">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..20</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095534D6FE33610BDF357107BE9A1B02C6D82626B80072556D2026BC755B4370306438E6D622952E55041D420FF7D8792DC4D4FBBBD08F341CDC77B6FEEAB6D55974DB53E3C6CC5C7BCB85EE4BF2D8ADF7973EE036A39F0E2E3AAF8B4BABAE6F79BE6D73C5FE5392B37651C3AC03B63C1C91604050E37128D6A52387B41CD9E24C29672D84905E21C63B75A2E5F5A9BC9566AE83153BE5DB2A7DE690B6B13C4122146E34EB8D446215367505F1FE9DB4A11430F4C790DF40485F32E796D0B8EBC39D776D20DA99D70BDB514E886604EE7283E94533BBE0BBE0B06A20C03974EF35BEF8E46530D232DFFD31D7D686534DEAD78EF641FCF3E987F40F31E617CAE0D2AEBB10FC03106A3A21D38FDF36434D5C8380197F305BF34C34C66987C6B799DE6405ED3F4E11974F6816938CADEC6FBD025B8B4384A8BC0B4EF9F2C3CC2DF3D38053B19D579CE80BBF92930C17D7FF39A087A3BBC3E4340DA8AAC0016A80C59F2441D86377624FAEADE12663E3139FA239DE3CFC9FA4101EB95B433E4D69F34D1B85EEDFFA8CAF5BED2E628556CBCB7B8AF9AC3DA60942EDE1253C41F31B7DFC8F01512E3D31B1CB9C6FD677FA25AEE340E62F483B3036B219C600663B4EF0C588D8F3EC47FE1A3C591E62A3161FADFD89A583776568EFB5F1075DEB8B88538D1318A2D781FDF2134FA49C0199B56488862BAA47C9917730CEF7C28ADA1DAB36293168C025C9392A837897242115B1962AAFBC51965E2302F12837468477D123E82B0C6E55CB92937CB570DD6D01A9204F4965196A5F1F4FBF321B1DC5E6E66AA499111AAF1928D53EC056D7CE863D7C73B6F350491028C2D169B09C65F909BEF77B258B009245194EC5D7F51EECAC36E5B1F8AEB2BD2742B8D138F373583978EE83A483CACAB7BD1D45FAA0B3D5C0690A2B8BEF86257574DFD17EBE81E0C9E89E109F7891C7145D6B3498C896202468E188AD4B4063A4E78869BA106F5D92B76E149EC5C9893D2CE0BB19979917F62DF00C392391207050000
+-->
+

@@ -1,0 +1,2183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with WSDLGenerator 1.0.0 by Amadeus SAS -->
+<!-- "Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved." -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xml.amadeus.com" xmlns:awsse="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" xmlns:air_rebookairsegment_14_1="http://xml.amadeus.com/ARBKUQ_14_1_1A" xmlns:air_rebookairsegmentreply_14_1="http://xml.amadeus.com/ARBKUR_14_1_1A" xmlns:ticket_creditcardcheck_6_1="http://xml.amadeus.com/CCVRQT_06_1_1A" xmlns:ticket_creditcardcheckreply_6_1="http://xml.amadeus.com/CCVRSP_06_1_1A" xmlns:pnr_ignore_4_1="http://xml.amadeus.com/CLTREQ_04_1_IA" xmlns:pnr_ignorereply_4_1="http://xml.amadeus.com/CLTRES_04_1_IA" xmlns:docrefund_searchrefundrule_5_1="http://xml.amadeus.com/CRULSQ_05_1_1A" xmlns:docrefund_searchrefundrulereply_5_1="http://xml.amadeus.com/CRULSR_05_1_1A" xmlns:fare_checkrules_7_1="http://xml.amadeus.com/FARQNQ_07_1_1A" xmlns:fare_checkrulesreply_7_1="http://xml.amadeus.com/FARQNR_07_1_1A" xmlns:fare_getfarerules_10_1="http://xml.amadeus.com/FARRNQ_10_1_1A" xmlns:fare_getfarerulesreply_10_1="http://xml.amadeus.com/FARRNR_10_1_1A" xmlns:ticket_checkeligibility_13_1="http://xml.amadeus.com/FATCEQ_13_1_1A" xmlns:ticket_checkeligibilityreply_13_1="http://xml.amadeus.com/FATCER_13_1_1A" xmlns:pnr_addfrequentflyer_4_1="http://xml.amadeus.com/FFAREQ_04_1_1A" xmlns:pnr_addfrequentflyerreply_4_1="http://xml.amadeus.com/FFARES_04_1_1A" xmlns:air_flightinfo_7_1="http://xml.amadeus.com/FLIREQ_07_1_1A" xmlns:air_flightinforeply_7_1="http://xml.amadeus.com/FLIRES_07_1_1A" xmlns:fare_masterpricercalendar_14_3="http://xml.amadeus.com/FMPCAQ_14_3_1A" xmlns:fare_masterpricercalendarreply_14_3="http://xml.amadeus.com/FMPCAR_14_3_1A" xmlns:fare_masterpricertravelboardsearch_14_3="http://xml.amadeus.com/FMPTBQ_14_3_1A" xmlns:fare_masterpricertravelboardsearchreply_14_3="http://xml.amadeus.com/FMPTBR_14_3_1A" xmlns:ticket_atcshoppermasterpricercalendar_13_1="http://xml.amadeus.com/FMTCCQ_13_1_1A" xmlns:ticket_atcshoppermasterpricercalendarreply_13_1="http://xml.amadeus.com/FMTCCR_13_1_1A" xmlns:ticket_atcshoppermasterpricertravelboardsearch_13_1="http://xml.amadeus.com/FMTCTQ_13_1_1A" xmlns:ticket_atcshoppermasterpricertravelboardsearchreply_13_1="http://xml.amadeus.com/FMTCTR_13_1_1A" xmlns:fare_displayfaresforcitypair_12_1="http://xml.amadeus.com/FQDREQ_12_1_1A" xmlns:fare_displayfaresforcitypairreply_12_1="http://xml.amadeus.com/FQDRES_12_1_1A" xmlns:hotel_sell_13_7="http://xml.amadeus.com/HBKRCQ_13_7_1A" xmlns:hotel_sell_15_4="http://xml.amadeus.com/HBKRCQ_15_4_1A" xmlns:hotel_sellreply_13_7="http://xml.amadeus.com/HBKRCR_13_7_1A" xmlns:hotel_sellreply_15_4="http://xml.amadeus.com/HBKRCR_15_4_1A" xmlns:command_cryptic_7_3="http://xml.amadeus.com/HSFREQ_07_3_1A" xmlns:command_crypticreply_7_3="http://xml.amadeus.com/HSFRES_07_3_1A" xmlns:air_sellfromrecommendation_5_2="http://xml.amadeus.com/ITAREQ_05_2_IA" xmlns:air_sellfromrecommendationreply_5_2="http://xml.amadeus.com/ITARES_05_2_IA" xmlns:fare_masterpricerexpertsearch_12_2="http://xml.amadeus.com/NFSSPQ_12_2_1A" xmlns:fare_masterpricerexpertsearch_14_3="http://xml.amadeus.com/NFSSPQ_14_3_1A" xmlns:fare_masterpricerexpertsearchreply_12_2="http://xml.amadeus.com/NFSSPR_12_2_1A" xmlns:fare_masterpricerexpertsearchreply_14_3="http://xml.amadeus.com/NFSSPR_14_3_1A" xmlns:pnr_reply_14_1="http://xml.amadeus.com/PNRACC_14_1_1A" xmlns:pnr_reply_15_1="http://xml.amadeus.com/PNRACC_15_1_1A" xmlns:pnr_addmultielements_14_1="http://xml.amadeus.com/PNRADD_14_1_1A" xmlns:pnr_addmultielements_15_1="http://xml.amadeus.com/PNRADD_15_1_1A" xmlns:pnr_retrieve_14_1="http://xml.amadeus.com/PNRRET_14_1_1A" xmlns:pnr_retrieve_15_1="http://xml.amadeus.com/PNRRET_15_1_1A" xmlns:pnr_cancel_14_1="http://xml.amadeus.com/PNRXCL_14_1_1A" xmlns:pnr_cancel_15_1="http://xml.amadeus.com/PNRXCL_15_1_1A" xmlns:pnr_retrievebyrecloc_14_1="http://xml.amadeus.com/PRETRQ_14_1_1A" xmlns:pnr_retrievebyreclocreply_14_1="http://xml.amadeus.com/PRETRR_14_1_1A" xmlns:queue_list_11_1="http://xml.amadeus.com/QDQLRQ_11_1_1A" xmlns:queue_listreply_11_1="http://xml.amadeus.com/QDQLRR_11_1_1A" xmlns:queuemode_processqueue_9_1="http://xml.amadeus.com/QUEREQ_09_1_IA" xmlns:queuemode_processqueuereply_9_1="http://xml.amadeus.com/QUERES_09_1_IA" xmlns:queue_removeitem_3_1="http://xml.amadeus.com/QUQMDQ_03_1_1A" xmlns:queue_removeitemreply_3_1="http://xml.amadeus.com/QUQMDR_03_1_1A" xmlns:queue_placepnr_3_1="http://xml.amadeus.com/QUQPCQ_03_1_1A" xmlns:queue_placepnrreply_3_1="http://xml.amadeus.com/QUQPCR_03_1_1A" xmlns:car_availability_14_3="http://xml.amadeus.com/RCARRQ_14_3_1A" xmlns:car_availability_17_1="http://xml.amadeus.com/RCARRQ_17_1_1A" xmlns:car_availabilityreply_14_3="http://xml.amadeus.com/RCARRR_14_3_1A" xmlns:car_availabilityreply_17_1="http://xml.amadeus.com/RCARRR_17_1_1A" xmlns:car_rateinformationfromavailability_10_1="http://xml.amadeus.com/RCFARQ_10_1_1A" xmlns:car_rateinformationfromavailability_14_1="http://xml.amadeus.com/RCFARQ_14_1_1A" xmlns:car_rateinformationfromavailabilityreply_10_1="http://xml.amadeus.com/RCFARR_10_1_1A" xmlns:car_rateinformationfromavailabilityreply_14_1="http://xml.amadeus.com/RCFARR_14_1_1A" xmlns:car_rateinformationfromcarsegment_5_2="http://xml.amadeus.com/RCFSRQ_05_2_1A" xmlns:car_rateinformationfromcarsegmentreply_5_2="http://xml.amadeus.com/RCFSRR_05_2_1A" xmlns:car_locationlist_7_1="http://xml.amadeus.com/RCLLRQ_07_1_1A" xmlns:car_locationlist_13_1="http://xml.amadeus.com/RCLLRQ_13_1_1A" xmlns:car_locationlistreply_7_1="http://xml.amadeus.com/RCLLRR_07_1_1A" xmlns:car_locationlistreply_13_1="http://xml.amadeus.com/RCLLRR_13_1_1A" xmlns:car_sell_13_1="http://xml.amadeus.com/RCSSCQ_13_1_1A" xmlns:car_sellreply_13_1="http://xml.amadeus.com/RCSSCR_13_1_1A" xmlns:air_multiavailability_13_2="http://xml.amadeus.com/SATRQT_13_2_1A" xmlns:air_multiavailabilityreply_13_2="http://xml.amadeus.com/SATRSP_13_2_1A" xmlns:air_retrieveseatmap_14_2="http://xml.amadeus.com/SMPREQ_14_2_1A" xmlns:air_retrieveseatmapreply_14_2="http://xml.amadeus.com/SMPRES_14_2_1A" xmlns:ticket_reissueconfirmedpricing_13_2="http://xml.amadeus.com/TARCPQ_13_2_1A" xmlns:ticket_reissueconfirmedpricingreply_13_2="http://xml.amadeus.com/TARCPR_13_2_1A" xmlns:docrefund_calculaterefund_15_1="http://xml.amadeus.com/TARFRQ_15_1_IA" xmlns:docrefund_calculaterefund_16_1="http://xml.amadeus.com/TARFRQ_16_1_1A" xmlns:docrefund_calculaterefundreply_15_1="http://xml.amadeus.com/TARFRR_15_1_1A" xmlns:docrefund_calculaterefundreply_16_1="http://xml.amadeus.com/TARFRR_16_1_1A" xmlns:ticket_repricepnrwithlowestfare_12_2="http://xml.amadeus.com/TARIBQ_12_2_1A" xmlns:ticket_repricepnrwithlowestfarereply_12_2="http://xml.amadeus.com/TARIBR_12_2_1A" xmlns:ticket_repricepnrwithbookingclass_12_2="http://xml.amadeus.com/TARIPQ_12_2_1A" xmlns:ticket_repricepnrwithbookingclass_14_3="http://xml.amadeus.com/TARIPQ_14_3_1A" xmlns:ticket_repricepnrwithbookingclassreply_12_2="http://xml.amadeus.com/TARIPR_12_2_1A" xmlns:ticket_repricepnrwithbookingclassreply_14_3="http://xml.amadeus.com/TARIPR_14_3_1A" xmlns:ticket_automaticupdate_6_1="http://xml.amadeus.com/TARUPQ_06_1_1A" xmlns:ticket_automaticupdate_12_1="http://xml.amadeus.com/TARUPQ_12_1_1A" xmlns:ticket_automaticupdatereply_6_1="http://xml.amadeus.com/TARUPR_06_1_1A" xmlns:ticket_automaticupdatereply_12_1="http://xml.amadeus.com/TARUPR_12_1_1A" xmlns:ticket_processedoc_15_2="http://xml.amadeus.com/TATREQ_15_2_1A" xmlns:ticket_processedocreply_15_2="http://xml.amadeus.com/TATRES_15_2_1A" xmlns:ticket_createtsmfrompricing_9_1="http://xml.amadeus.com/TAUSCQ_09_1_1A" xmlns:ticket_createtsmfrompricingreply_9_1="http://xml.amadeus.com/TAUSCR_09_1_1A" xmlns:ticket_createtstfrompricing_4_1="http://xml.amadeus.com/TAUTCQ_04_1_1A" xmlns:ticket_createtstfrompricingreply_4_1="http://xml.amadeus.com/TAUTCR_04_1_1A" xmlns:docissuance_issuecombined_9_2="http://xml.amadeus.com/TCTMIQ_09_2_1A" xmlns:docissuance_issuecombined_15_1="http://xml.amadeus.com/TCTMIQ_15_1_1A" xmlns:docissuance_issuecombinedreply_9_2="http://xml.amadeus.com/TCTMIR_09_2_1A" xmlns:docissuance_issuecombinedreply_15_1="http://xml.amadeus.com/TCTMIR_15_1_1A" xmlns:fop_createformofpayment_11_1="http://xml.amadeus.com/TFOPCQ_11_1_1A" xmlns:fop_createformofpayment_15_4="http://xml.amadeus.com/TFOPCQ_15_4_1A" xmlns:fop_createformofpaymentreply_11_1="http://xml.amadeus.com/TFOPCR_11_1_1A" xmlns:fop_createformofpaymentreply_15_4="http://xml.amadeus.com/TFOPCR_15_4_1A" xmlns:ticket_createtsmfareelement_10_1="http://xml.amadeus.com/TFRECQ_10_1_1A" xmlns:ticket_createtsmfareelementreply_10_1="http://xml.amadeus.com/TFRECR_10_1_1A" xmlns:ticket_displaytsmfareelement_13_1="http://xml.amadeus.com/TFRERQ_13_1_1A" xmlns:ticket_displaytsmfareelementreply_13_1="http://xml.amadeus.com/TFRERR_13_1_1A" xmlns:fare_informativebestpricingwithoutpnr_13_2="http://xml.amadeus.com/TIBNRQ_13_2_1A" xmlns:fare_informativebestpricingwithoutpnr_14_1="http://xml.amadeus.com/TIBNRQ_14_1_1A" xmlns:fare_informativebestpricingwithoutpnrreply_13_2="http://xml.amadeus.com/TIBNRR_13_2_1A" xmlns:fare_informativebestpricingwithoutpnrreply_14_1="http://xml.amadeus.com/TIBNRR_14_1_1A" xmlns:fare_informativepricingwithoutpnr_13_2="http://xml.amadeus.com/TIPNRQ_13_2_1A" xmlns:fare_informativepricingwithoutpnr_15_1="http://xml.amadeus.com/TIPNRQ_15_1_1A" xmlns:fare_informativepricingwithoutpnrreply_13_2="http://xml.amadeus.com/TIPNRR_13_2_1A" xmlns:fare_informativepricingwithoutpnrreply_15_1="http://xml.amadeus.com/TIPNRR_15_1_1A" xmlns:ticket_processeticket_4_1="http://xml.amadeus.com/TKTREQ_04_1_IA" xmlns:ticket_processeticketreply_4_1="http://xml.amadeus.com/TKTRES_04_1_IA" xmlns:ticket_createmanualtst_7_1="http://xml.amadeus.com/TMATCQ_07_1_1A" xmlns:ticket_createmanualtst_13_1="http://xml.amadeus.com/TMATCQ_13_1_1A" xmlns:ticket_createmanualtstreply_7_1="http://xml.amadeus.com/TMATCR_07_1_1A" xmlns:ticket_createmanualtstreply_13_1="http://xml.amadeus.com/TMATCR_13_1_1A" xmlns:docissuance_issuemiscellaneousdocuments_9_2="http://xml.amadeus.com/TMDSIQ_09_2_1A" xmlns:docissuance_issuemiscellaneousdocuments_15_1="http://xml.amadeus.com/TMDSIQ_15_1_1A" xmlns:docissuance_issuemiscellaneousdocumentsreply_9_2="http://xml.amadeus.com/TMDSIR_09_2_1A" xmlns:docissuance_issuemiscellaneousdocumentsreply_15_1="http://xml.amadeus.com/TMDSIR_15_1_1A" xmlns:minirule_getfrompricing_11_1="http://xml.amadeus.com/TMRCRQ_11_1_1A" xmlns:minirule_getfrompricingreply_11_1="http://xml.amadeus.com/TMRCRR_11_1_1A" xmlns:pnr_list_0_1="http://xml.amadeus.com/TNLRES_00_1_1A" xmlns:fare_pricepnrwithbookingclass_13_2="http://xml.amadeus.com/TPCBRQ_13_2_1A" xmlns:fare_pricepnrwithbookingclass_16_1="http://xml.amadeus.com/TPCBRQ_16_1_1A" xmlns:fare_pricepnrwithbookingclassreply_13_2="http://xml.amadeus.com/TPCBRR_13_2_1A" xmlns:fare_pricepnrwithbookingclassreply_16_1="http://xml.amadeus.com/TPCBRR_16_1_1A" xmlns:service_integratedcatalogue_15_1="http://xml.amadeus.com/TPICGQ_15_1_1A" xmlns:service_integratedcatalogue_16_1="http://xml.amadeus.com/TPICGQ_16_1_1A" xmlns:service_integratedcataloguereply_15_1="http://xml.amadeus.com/TPICGR_15_1_1A" xmlns:service_integratedcataloguereply_16_1="http://xml.amadeus.com/TPICGR_16_1_1A" xmlns:service_integratedpricing_15_1="http://xml.amadeus.com/TPISGQ_15_1_1A" xmlns:service_integratedpricingreply_15_1="http://xml.amadeus.com/TPISGR_15_1_1A" xmlns:fare_pricepnrwithlowerfares_13_2="http://xml.amadeus.com/TPLFRQ_13_2_1A" xmlns:fare_pricepnrwithlowerfares_16_1="http://xml.amadeus.com/TPLFRQ_16_1_1A" xmlns:fare_pricepnrwithlowerfaresreply_13_2="http://xml.amadeus.com/TPLFRR_13_2_1A" xmlns:fare_pricepnrwithlowerfaresreply_16_1="http://xml.amadeus.com/TPLFRR_16_1_1A" xmlns:ticket_reissuebestpricingwithoutpnr_8_1="http://xml.amadeus.com/TRBNRQ_08_1_1A" xmlns:ticket_reissuebestpricingwithoutpnrreply_8_1="http://xml.amadeus.com/TRBNRR_08_1_1A" xmlns:docrefund_ignorerefund_9_2="http://xml.amadeus.com/TRFIDQ_09_2_IA" xmlns:docrefund_ignorerefundreply_9_2="http://xml.amadeus.com/TRFIDR_09_2_IA" xmlns:docrefund_processrefund_13_1="http://xml.amadeus.com/TRFPCQ_13_1_1A" xmlns:docrefund_processrefundreply_13_1="http://xml.amadeus.com/TRFPCR_13_1_1A" xmlns:docrefund_initrefund_14_1="http://xml.amadeus.com/TRFSRQ_14_1_1A" xmlns:docrefund_initrefundreply_14_1="http://xml.amadeus.com/TRFSRR_14_1_1A" xmlns:docrefund_updaterefund_14_1="http://xml.amadeus.com/TRFUUQ_14_1_1A" xmlns:docrefund_updaterefundreply_14_1="http://xml.amadeus.com/TRFUUR_14_1_1A" xmlns:docissuance_issueticket_9_1="http://xml.amadeus.com/TTKTIQ_09_1_1A" xmlns:docissuance_issueticket_15_1="http://xml.amadeus.com/TTKTIQ_15_1_1A" xmlns:docissuance_issueticketreply_9_1="http://xml.amadeus.com/TTKTIR_09_1_1A" xmlns:docissuance_issueticketreply_15_1="http://xml.amadeus.com/TTKTIR_15_1_1A" xmlns:ticket_retrievelistoftsm_9_1="http://xml.amadeus.com/TTSLRQ_09_1_1A" xmlns:ticket_retrievelistoftsmreply_9_1="http://xml.amadeus.com/TTSLRR_09_1_1A" xmlns:ticket_deletetsmp_8_1="http://xml.amadeus.com/TTSMDQ_08_1_1A" xmlns:ticket_deletetsmpreply_8_1="http://xml.amadeus.com/TTSMDR_08_1_1A" xmlns:ticket_displaytsmp_13_1="http://xml.amadeus.com/TTSMRQ_13_1_1A" xmlns:ticket_displaytsmpreply_13_1="http://xml.amadeus.com/TTSMRR_13_1_1A" xmlns:ticket_updatetsmp_13_1="http://xml.amadeus.com/TTSMUQ_13_1_1A" xmlns:ticket_updatetsmpreply_13_1="http://xml.amadeus.com/TTSMUR_13_1_1A" xmlns:ticket_deletetst_4_1="http://xml.amadeus.com/TTSTDQ_04_1_1A" xmlns:ticket_deletetstreply_4_1="http://xml.amadeus.com/TTSTDR_04_1_1A" xmlns:ticket_displaytst_13_1="http://xml.amadeus.com/TTSTRQ_13_1_1A" xmlns:ticket_displaytst_15_1="http://xml.amadeus.com/TTSTRQ_15_1_1A" xmlns:ticket_displaytstreply_13_1="http://xml.amadeus.com/TTSTRR_13_1_1A" xmlns:ticket_displaytstreply_15_1="http://xml.amadeus.com/TTSTRR_15_1_1A" xmlns:ticket_updatetst_13_1="http://xml.amadeus.com/TTSTUQ_13_1_1A" xmlns:ticket_updatetst_15_1="http://xml.amadeus.com/TTSTUQ_15_1_1A" xmlns:ticket_updatetstreply_13_1="http://xml.amadeus.com/TTSTUR_13_1_1A" xmlns:ticket_updatetstreply_15_1="http://xml.amadeus.com/TTSTUR_15_1_1A" xmlns:security_authenticate_6_1="http://xml.amadeus.com/VLSSLQ_06_1_1A" xmlns:security_authenticatereply_6_1="http://xml.amadeus.com/VLSSLR_06_1_1A" xmlns:security_signout_4_1="http://xml.amadeus.com/VLSSOQ_04_1_1A" xmlns:security_signoutreply_4_1="http://xml.amadeus.com/VLSSOR_04_1_1A" targetNamespace="http://xml.amadeus.com">
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" schemaLocation="WBS_Session-2.0.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/ARBKUQ_14_1_1A" schemaLocation="Air_RebookAirSegment_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/ARBKUR_14_1_1A" schemaLocation="Air_RebookAirSegmentReply_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/CCVRQT_06_1_1A" schemaLocation="Ticket_CreditCardCheck_06_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/CCVRSP_06_1_1A" schemaLocation="Ticket_CreditCardCheckReply_06_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/CLTREQ_04_1_IA" schemaLocation="PNR_Ignore_04_1_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/CLTRES_04_1_IA" schemaLocation="PNR_IgnoreReply_04_1_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/CRULSQ_05_1_1A" schemaLocation="DocRefund_SearchRefundRule_05_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/CRULSR_05_1_1A" schemaLocation="DocRefund_SearchRefundRuleReply_05_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FARQNQ_07_1_1A" schemaLocation="Fare_CheckRules_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FARQNR_07_1_1A" schemaLocation="Fare_CheckRulesReply_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FARRNQ_10_1_1A" schemaLocation="Fare_GetFareRules_10_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FARRNR_10_1_1A" schemaLocation="Fare_GetFareRulesReply_10_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FATCEQ_13_1_1A" schemaLocation="Ticket_CheckEligibility_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FATCER_13_1_1A" schemaLocation="Ticket_CheckEligibilityReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FFAREQ_04_1_1A" schemaLocation="PNR_AddFrequentFlyer_04_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FFARES_04_1_1A" schemaLocation="PNR_AddFrequentFlyerReply_04_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FLIREQ_07_1_1A" schemaLocation="Air_FlightInfo_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FLIRES_07_1_1A" schemaLocation="Air_FlightInfoReply_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMPCAQ_14_3_1A" schemaLocation="Fare_MasterPricerCalendar_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMPCAR_14_3_1A" schemaLocation="Fare_MasterPricerCalendarReply_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMPTBQ_14_3_1A" schemaLocation="Fare_MasterPricerTravelBoardSearch_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMPTBR_14_3_1A" schemaLocation="Fare_MasterPricerTravelBoardSearchReply_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMTCCQ_13_1_1A" schemaLocation="Ticket_ATCShopperMasterPricerCalendar_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMTCCR_13_1_1A" schemaLocation="Ticket_ATCShopperMasterPricerCalendarReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMTCTQ_13_1_1A" schemaLocation="Ticket_ATCShopperMasterPricerTravelBoardSearch_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FMTCTR_13_1_1A" schemaLocation="Ticket_ATCShopperMasterPricerTravelBoardSearchReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FQDREQ_12_1_1A" schemaLocation="Fare_DisplayFaresForCityPair_12_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/FQDRES_12_1_1A" schemaLocation="Fare_DisplayFaresForCityPairReply_12_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/HBKRCQ_13_7_1A" schemaLocation="Hotel_Sell_13_7_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/HBKRCQ_15_4_1A" schemaLocation="Hotel_Sell_15_4_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/HBKRCR_13_7_1A" schemaLocation="Hotel_SellReply_13_7_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/HBKRCR_15_4_1A" schemaLocation="Hotel_SellReply_15_4_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/HSFREQ_07_3_1A" schemaLocation="Command_Cryptic_07_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/HSFRES_07_3_1A" schemaLocation="Command_CrypticReply_07_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/ITAREQ_05_2_IA" schemaLocation="Air_SellFromRecommendation_05_2_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/ITARES_05_2_IA" schemaLocation="Air_SellFromRecommendationReply_05_2_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/NFSSPQ_12_2_1A" schemaLocation="Fare_MasterPricerExpertSearch_12_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/NFSSPQ_14_3_1A" schemaLocation="Fare_MasterPricerExpertSearch_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/NFSSPR_12_2_1A" schemaLocation="Fare_MasterPricerExpertSearchReply_12_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/NFSSPR_14_3_1A" schemaLocation="Fare_MasterPricerExpertSearchReply_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRACC_14_1_1A" schemaLocation="PNR_Reply_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRACC_15_1_1A" schemaLocation="PNR_Reply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRADD_14_1_1A" schemaLocation="PNR_AddMultiElements_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRADD_15_1_1A" schemaLocation="PNR_AddMultiElements_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRRET_14_1_1A" schemaLocation="PNR_Retrieve_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRRET_15_1_1A" schemaLocation="PNR_Retrieve_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRXCL_14_1_1A" schemaLocation="PNR_Cancel_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PNRXCL_15_1_1A" schemaLocation="PNR_Cancel_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PRETRQ_14_1_1A" schemaLocation="PNR_RetrieveByRecLoc_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/PRETRR_14_1_1A" schemaLocation="PNR_RetrieveByRecLocReply_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QDQLRQ_11_1_1A" schemaLocation="Queue_List_11_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QDQLRR_11_1_1A" schemaLocation="Queue_ListReply_11_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QUEREQ_09_1_IA" schemaLocation="QueueMode_ProcessQueue_09_1_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QUERES_09_1_IA" schemaLocation="QueueMode_ProcessQueueReply_09_1_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QUQMDQ_03_1_1A" schemaLocation="Queue_RemoveItem_03_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QUQMDR_03_1_1A" schemaLocation="Queue_RemoveItemReply_03_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QUQPCQ_03_1_1A" schemaLocation="Queue_PlacePNR_03_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/QUQPCR_03_1_1A" schemaLocation="Queue_PlacePNRReply_03_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCARRQ_14_3_1A" schemaLocation="Car_Availability_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCARRQ_17_1_1A" schemaLocation="Car_Availability_17_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCARRR_14_3_1A" schemaLocation="Car_AvailabilityReply_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCARRR_17_1_1A" schemaLocation="Car_AvailabilityReply_17_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCFARQ_10_1_1A" schemaLocation="Car_RateInformationFromAvailability_10_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCFARQ_14_1_1A" schemaLocation="Car_RateInformationFromAvailability_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCFARR_10_1_1A" schemaLocation="Car_RateInformationFromAvailabilityReply_10_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCFARR_14_1_1A" schemaLocation="Car_RateInformationFromAvailabilityReply_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCFSRQ_05_2_1A" schemaLocation="Car_RateInformationFromCarSegment_05_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCFSRR_05_2_1A" schemaLocation="Car_RateInformationFromCarSegmentReply_05_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCLLRQ_07_1_1A" schemaLocation="Car_LocationList_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCLLRQ_13_1_1A" schemaLocation="Car_LocationList_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCLLRR_07_1_1A" schemaLocation="Car_LocationListReply_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCLLRR_13_1_1A" schemaLocation="Car_LocationListReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCSSCQ_13_1_1A" schemaLocation="Car_Sell_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/RCSSCR_13_1_1A" schemaLocation="Car_SellReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/SATRQT_13_2_1A" schemaLocation="Air_MultiAvailability_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/SATRSP_13_2_1A" schemaLocation="Air_MultiAvailabilityReply_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/SMPREQ_14_2_1A" schemaLocation="Air_RetrieveSeatMap_14_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/SMPRES_14_2_1A" schemaLocation="Air_RetrieveSeatMapReply_14_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARCPQ_13_2_1A" schemaLocation="Ticket_ReissueConfirmedPricing_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARCPR_13_2_1A" schemaLocation="Ticket_ReissueConfirmedPricingReply_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARFRQ_15_1_IA" schemaLocation="DocRefund_CalculateRefund_15_1_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARFRQ_16_1_1A" schemaLocation="DocRefund_CalculateRefund_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARFRR_15_1_1A" schemaLocation="DocRefund_CalculateRefundReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARFRR_16_1_1A" schemaLocation="DocRefund_CalculateRefundReply_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARIBQ_12_2_1A" schemaLocation="Ticket_RepricePNRWithLowestFare_12_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARIBR_12_2_1A" schemaLocation="Ticket_RepricePNRWithLowestFareReply_12_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARIPQ_12_2_1A" schemaLocation="Ticket_RepricePNRWithBookingClass_12_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARIPQ_14_3_1A" schemaLocation="Ticket_RepricePNRWithBookingClass_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARIPR_12_2_1A" schemaLocation="Ticket_RepricePNRWithBookingClassReply_12_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARIPR_14_3_1A" schemaLocation="Ticket_RepricePNRWithBookingClassReply_14_3_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARUPQ_06_1_1A" schemaLocation="Ticket_AutomaticUpdate_06_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARUPQ_12_1_1A" schemaLocation="Ticket_AutomaticUpdate_12_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARUPR_06_1_1A" schemaLocation="Ticket_AutomaticUpdateReply_06_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TARUPR_12_1_1A" schemaLocation="Ticket_AutomaticUpdateReply_12_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TATREQ_15_2_1A" schemaLocation="Ticket_ProcessEDoc_15_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TATRES_15_2_1A" schemaLocation="Ticket_ProcessEDocReply_15_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TAUSCQ_09_1_1A" schemaLocation="Ticket_CreateTSMFromPricing_09_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TAUSCR_09_1_1A" schemaLocation="Ticket_CreateTSMFromPricingReply_09_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TAUTCQ_04_1_1A" schemaLocation="Ticket_CreateTSTFromPricing_04_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TAUTCR_04_1_1A" schemaLocation="Ticket_CreateTSTFromPricingReply_04_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TCTMIQ_09_2_1A" schemaLocation="DocIssuance_IssueCombined_09_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TCTMIQ_15_1_1A" schemaLocation="DocIssuance_IssueCombined_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TCTMIR_09_2_1A" schemaLocation="DocIssuance_IssueCombinedReply_09_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TCTMIR_15_1_1A" schemaLocation="DocIssuance_IssueCombinedReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFOPCQ_11_1_1A" schemaLocation="FOP_CreateFormOfPayment_11_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFOPCQ_15_4_1A" schemaLocation="FOP_CreateFormOfPayment_15_4_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFOPCR_11_1_1A" schemaLocation="FOP_CreateFormOfPaymentReply_11_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFOPCR_15_4_1A" schemaLocation="FOP_CreateFormOfPaymentReply_15_4_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFRECQ_10_1_1A" schemaLocation="Ticket_CreateTSMFareElement_10_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFRECR_10_1_1A" schemaLocation="Ticket_CreateTSMFareElementReply_10_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFRERQ_13_1_1A" schemaLocation="Ticket_DisplayTSMFareElement_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TFRERR_13_1_1A" schemaLocation="Ticket_DisplayTSMFareElementReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIBNRQ_13_2_1A" schemaLocation="Fare_InformativeBestPricingWithoutPNR_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIBNRQ_14_1_1A" schemaLocation="Fare_InformativeBestPricingWithoutPNR_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIBNRR_13_2_1A" schemaLocation="Fare_InformativeBestPricingWithoutPNRReply_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIBNRR_14_1_1A" schemaLocation="Fare_InformativeBestPricingWithoutPNRReply_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIPNRQ_13_2_1A" schemaLocation="Fare_InformativePricingWithoutPNR_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIPNRQ_15_1_1A" schemaLocation="Fare_InformativePricingWithoutPNR_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIPNRR_13_2_1A" schemaLocation="Fare_InformativePricingWithoutPNRReply_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TIPNRR_15_1_1A" schemaLocation="Fare_InformativePricingWithoutPNRReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TKTREQ_04_1_IA" schemaLocation="Ticket_ProcessETicket_04_1_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TKTRES_04_1_IA" schemaLocation="Ticket_ProcessETicketReply_04_1_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMATCQ_07_1_1A" schemaLocation="Ticket_CreateManualTST_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMATCQ_13_1_1A" schemaLocation="Ticket_CreateManualTST_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMATCR_07_1_1A" schemaLocation="Ticket_CreateManualTSTReply_07_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMATCR_13_1_1A" schemaLocation="Ticket_CreateManualTSTReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMDSIQ_09_2_1A" schemaLocation="DocIssuance_IssueMiscellaneousDocuments_09_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMDSIQ_15_1_1A" schemaLocation="DocIssuance_IssueMiscellaneousDocuments_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMDSIR_09_2_1A" schemaLocation="DocIssuance_IssueMiscellaneousDocumentsReply_09_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMDSIR_15_1_1A" schemaLocation="DocIssuance_IssueMiscellaneousDocumentsReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMRCRQ_11_1_1A" schemaLocation="MiniRule_GetFromPricing_11_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TMRCRR_11_1_1A" schemaLocation="MiniRule_GetFromPricingReply_11_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TNLRES_00_1_1A" schemaLocation="PNR_List_00_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPCBRQ_13_2_1A" schemaLocation="Fare_PricePNRWithBookingClass_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPCBRQ_16_1_1A" schemaLocation="Fare_PricePNRWithBookingClass_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPCBRR_13_2_1A" schemaLocation="Fare_PricePNRWithBookingClassReply_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPCBRR_16_1_1A" schemaLocation="Fare_PricePNRWithBookingClassReply_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPICGQ_15_1_1A" schemaLocation="Service_IntegratedCatalogue_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPICGQ_16_1_1A" schemaLocation="Service_IntegratedCatalogue_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPICGR_15_1_1A" schemaLocation="Service_IntegratedCatalogueReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPICGR_16_1_1A" schemaLocation="Service_IntegratedCatalogueReply_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPISGQ_15_1_1A" schemaLocation="Service_IntegratedPricing_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPISGR_15_1_1A" schemaLocation="Service_IntegratedPricingReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPLFRQ_13_2_1A" schemaLocation="Fare_PricePNRWithLowerFares_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPLFRQ_16_1_1A" schemaLocation="Fare_PricePNRWithLowerFares_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPLFRR_13_2_1A" schemaLocation="Fare_PricePNRWithLowerFaresReply_13_2_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TPLFRR_16_1_1A" schemaLocation="Fare_PricePNRWithLowerFaresReply_16_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRBNRQ_08_1_1A" schemaLocation="Ticket_ReissueBestPricingWithoutPNR_08_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRBNRR_08_1_1A" schemaLocation="Ticket_ReissueBestPricingWithoutPNRReply_08_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFIDQ_09_2_IA" schemaLocation="DocRefund_IgnoreRefund_09_2_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFIDR_09_2_IA" schemaLocation="DocRefund_IgnoreRefundReply_09_2_IA.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFPCQ_13_1_1A" schemaLocation="DocRefund_ProcessRefund_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFPCR_13_1_1A" schemaLocation="DocRefund_ProcessRefundReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFSRQ_14_1_1A" schemaLocation="DocRefund_InitRefund_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFSRR_14_1_1A" schemaLocation="DocRefund_InitRefundReply_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFUUQ_14_1_1A" schemaLocation="DocRefund_UpdateRefund_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TRFUUR_14_1_1A" schemaLocation="DocRefund_UpdateRefundReply_14_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTKTIQ_09_1_1A" schemaLocation="DocIssuance_IssueTicket_09_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTKTIQ_15_1_1A" schemaLocation="DocIssuance_IssueTicket_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTKTIR_09_1_1A" schemaLocation="DocIssuance_IssueTicketReply_09_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTKTIR_15_1_1A" schemaLocation="DocIssuance_IssueTicketReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSLRQ_09_1_1A" schemaLocation="Ticket_RetrieveListOfTSM_09_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSLRR_09_1_1A" schemaLocation="Ticket_RetrieveListOfTSMReply_09_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSMDQ_08_1_1A" schemaLocation="Ticket_DeleteTSMP_08_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSMDR_08_1_1A" schemaLocation="Ticket_DeleteTSMPReply_08_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSMRQ_13_1_1A" schemaLocation="Ticket_DisplayTSMP_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSMRR_13_1_1A" schemaLocation="Ticket_DisplayTSMPReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSMUQ_13_1_1A" schemaLocation="Ticket_UpdateTSMP_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSMUR_13_1_1A" schemaLocation="Ticket_UpdateTSMPReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTDQ_04_1_1A" schemaLocation="Ticket_DeleteTST_04_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTDR_04_1_1A" schemaLocation="Ticket_DeleteTSTReply_04_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTRQ_13_1_1A" schemaLocation="Ticket_DisplayTST_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTRQ_15_1_1A" schemaLocation="Ticket_DisplayTST_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTRR_13_1_1A" schemaLocation="Ticket_DisplayTSTReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTRR_15_1_1A" schemaLocation="Ticket_DisplayTSTReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTUQ_13_1_1A" schemaLocation="Ticket_UpdateTST_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTUQ_15_1_1A" schemaLocation="Ticket_UpdateTST_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTUR_13_1_1A" schemaLocation="Ticket_UpdateTSTReply_13_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/TTSTUR_15_1_1A" schemaLocation="Ticket_UpdateTSTReply_15_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/VLSSLQ_06_1_1A" schemaLocation="Security_Authenticate_06_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/VLSSLR_06_1_1A" schemaLocation="Security_AuthenticateReply_06_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/VLSSOQ_04_1_1A" schemaLocation="Security_SignOut_04_1_1A.xsd" />
+      <xs:import namespace="http://xml.amadeus.com/VLSSOR_04_1_1A" schemaLocation="Security_SignOutReply_04_1_1A.xsd" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="Session_2.0">
+    <wsdl:part element="awsse:Session" name="session" />
+  </wsdl:message>
+  <wsdl:message name="Air_FlightInfo_7_1">
+    <wsdl:part element="air_flightinfo_7_1:Air_FlightInfo" name="Air_FlightInfo_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Air_FlightInfoReply_7_1">
+    <wsdl:part element="air_flightinforeply_7_1:Air_FlightInfoReply" name="Air_FlightInfoReply_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Air_MultiAvailability_13_2">
+    <wsdl:part element="air_multiavailability_13_2:Air_MultiAvailability" name="Air_MultiAvailability_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Air_MultiAvailabilityReply_13_2">
+    <wsdl:part element="air_multiavailabilityreply_13_2:Air_MultiAvailabilityReply" name="Air_MultiAvailabilityReply_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Air_RebookAirSegment_14_1">
+    <wsdl:part element="air_rebookairsegment_14_1:Air_RebookAirSegment" name="Air_RebookAirSegment_14_1" />
+  </wsdl:message>
+  <wsdl:message name="Air_RebookAirSegmentReply_14_1">
+    <wsdl:part element="air_rebookairsegmentreply_14_1:Air_RebookAirSegmentReply" name="Air_RebookAirSegmentReply_14_1" />
+  </wsdl:message>
+  <wsdl:message name="Air_RetrieveSeatMap_14_2">
+    <wsdl:part element="air_retrieveseatmap_14_2:Air_RetrieveSeatMap" name="Air_RetrieveSeatMap_14_2" />
+  </wsdl:message>
+  <wsdl:message name="Air_RetrieveSeatMapReply_14_2">
+    <wsdl:part element="air_retrieveseatmapreply_14_2:Air_RetrieveSeatMapReply" name="Air_RetrieveSeatMapReply_14_2" />
+  </wsdl:message>
+  <wsdl:message name="Air_SellFromRecommendation_5_2">
+    <wsdl:part element="air_sellfromrecommendation_5_2:Air_SellFromRecommendation" name="Air_SellFromRecommendation_5_2" />
+  </wsdl:message>
+  <wsdl:message name="Air_SellFromRecommendationReply_5_2">
+    <wsdl:part element="air_sellfromrecommendationreply_5_2:Air_SellFromRecommendationReply" name="Air_SellFromRecommendationReply_5_2" />
+  </wsdl:message>
+  <wsdl:message name="Car_Availability_14_3">
+    <wsdl:part element="car_availability_14_3:Car_Availability" name="Car_Availability_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Car_Availability_17_1">
+    <wsdl:part element="car_availability_17_1:Car_Availability" name="Car_Availability_17_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_AvailabilityReply_14_3">
+    <wsdl:part element="car_availabilityreply_14_3:Car_AvailabilityReply" name="Car_AvailabilityReply_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Car_AvailabilityReply_17_1">
+    <wsdl:part element="car_availabilityreply_17_1:Car_AvailabilityReply" name="Car_AvailabilityReply_17_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_LocationList_7_1">
+    <wsdl:part element="car_locationlist_7_1:Car_LocationList" name="Car_LocationList_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_LocationList_13_1">
+    <wsdl:part element="car_locationlist_13_1:Car_LocationList" name="Car_LocationList_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_LocationListReply_7_1">
+    <wsdl:part element="car_locationlistreply_7_1:Car_LocationListReply" name="Car_LocationListReply_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_LocationListReply_13_1">
+    <wsdl:part element="car_locationlistreply_13_1:Car_LocationListReply" name="Car_LocationListReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_RateInformationFromAvailability_10_1">
+    <wsdl:part element="car_rateinformationfromavailability_10_1:Car_RateInformationFromAvailability" name="Car_RateInformationFromAvailability_10_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_RateInformationFromAvailability_14_1">
+    <wsdl:part element="car_rateinformationfromavailability_14_1:Car_RateInformationFromAvailability" name="Car_RateInformationFromAvailability_14_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_RateInformationFromAvailabilityReply_10_1">
+    <wsdl:part element="car_rateinformationfromavailabilityreply_10_1:Car_RateInformationFromAvailabilityReply" name="Car_RateInformationFromAvailabilityReply_10_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_RateInformationFromAvailabilityReply_14_1">
+    <wsdl:part element="car_rateinformationfromavailabilityreply_14_1:Car_RateInformationFromAvailabilityReply" name="Car_RateInformationFromAvailabilityReply_14_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_RateInformationFromCarSegment_5_2">
+    <wsdl:part element="car_rateinformationfromcarsegment_5_2:Car_RateInformationFromCarSegment" name="Car_RateInformationFromCarSegment_5_2" />
+  </wsdl:message>
+  <wsdl:message name="Car_RateInformationFromCarSegmentReply_5_2">
+    <wsdl:part element="car_rateinformationfromcarsegmentreply_5_2:Car_RateInformationFromCarSegmentReply" name="Car_RateInformationFromCarSegmentReply_5_2" />
+  </wsdl:message>
+  <wsdl:message name="Car_Sell_13_1">
+    <wsdl:part element="car_sell_13_1:Car_Sell" name="Car_Sell_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Car_SellReply_13_1">
+    <wsdl:part element="car_sellreply_13_1:Car_SellReply" name="Car_SellReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Command_Cryptic_7_3">
+    <wsdl:part element="command_cryptic_7_3:Command_Cryptic" name="Command_Cryptic_7_3" />
+  </wsdl:message>
+  <wsdl:message name="Command_CrypticReply_7_3">
+    <wsdl:part element="command_crypticreply_7_3:Command_CrypticReply" name="Command_CrypticReply_7_3" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueCombined_9_2">
+    <wsdl:part element="docissuance_issuecombined_9_2:DocIssuance_IssueCombined" name="DocIssuance_IssueCombined_9_2" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueCombined_15_1">
+    <wsdl:part element="docissuance_issuecombined_15_1:DocIssuance_IssueCombined" name="DocIssuance_IssueCombined_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueCombinedReply_9_2">
+    <wsdl:part element="docissuance_issuecombinedreply_9_2:DocIssuance_IssueCombinedReply" name="DocIssuance_IssueCombinedReply_9_2" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueCombinedReply_15_1">
+    <wsdl:part element="docissuance_issuecombinedreply_15_1:DocIssuance_IssueCombinedReply" name="DocIssuance_IssueCombinedReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueMiscellaneousDocuments_9_2">
+    <wsdl:part element="docissuance_issuemiscellaneousdocuments_9_2:DocIssuance_IssueMiscellaneousDocuments" name="DocIssuance_IssueMiscellaneousDocuments_9_2" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueMiscellaneousDocuments_15_1">
+    <wsdl:part element="docissuance_issuemiscellaneousdocuments_15_1:DocIssuance_IssueMiscellaneousDocuments" name="DocIssuance_IssueMiscellaneousDocuments_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueMiscellaneousDocumentsReply_9_2">
+    <wsdl:part element="docissuance_issuemiscellaneousdocumentsreply_9_2:DocIssuance_IssueMiscellaneousDocumentsReply" name="DocIssuance_IssueMiscellaneousDocumentsReply_9_2" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueMiscellaneousDocumentsReply_15_1">
+    <wsdl:part element="docissuance_issuemiscellaneousdocumentsreply_15_1:DocIssuance_IssueMiscellaneousDocumentsReply" name="DocIssuance_IssueMiscellaneousDocumentsReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueTicket_9_1">
+    <wsdl:part element="docissuance_issueticket_9_1:DocIssuance_IssueTicket" name="DocIssuance_IssueTicket_9_1" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueTicket_15_1">
+    <wsdl:part element="docissuance_issueticket_15_1:DocIssuance_IssueTicket" name="DocIssuance_IssueTicket_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueTicketReply_9_1">
+    <wsdl:part element="docissuance_issueticketreply_9_1:DocIssuance_IssueTicketReply" name="DocIssuance_IssueTicketReply_9_1" />
+  </wsdl:message>
+  <wsdl:message name="DocIssuance_IssueTicketReply_15_1">
+    <wsdl:part element="docissuance_issueticketreply_15_1:DocIssuance_IssueTicketReply" name="DocIssuance_IssueTicketReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_CalculateRefund_15_1">
+    <wsdl:part element="docrefund_calculaterefund_15_1:DocRefund_CalculateRefund" name="DocRefund_CalculateRefund_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_CalculateRefund_16_1">
+    <wsdl:part element="docrefund_calculaterefund_16_1:DocRefund_CalculateRefund" name="DocRefund_CalculateRefund_16_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_CalculateRefundReply_15_1">
+    <wsdl:part element="docrefund_calculaterefundreply_15_1:DocRefund_CalculateRefundReply" name="DocRefund_CalculateRefundReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_CalculateRefundReply_16_1">
+    <wsdl:part element="docrefund_calculaterefundreply_16_1:DocRefund_CalculateRefundReply" name="DocRefund_CalculateRefundReply_16_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_IgnoreRefund_9_2">
+    <wsdl:part element="docrefund_ignorerefund_9_2:DocRefund_IgnoreRefund" name="DocRefund_IgnoreRefund_9_2" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_IgnoreRefundReply_9_2">
+    <wsdl:part element="docrefund_ignorerefundreply_9_2:DocRefund_IgnoreRefundReply" name="DocRefund_IgnoreRefundReply_9_2" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_InitRefund_14_1">
+    <wsdl:part element="docrefund_initrefund_14_1:DocRefund_InitRefund" name="DocRefund_InitRefund_14_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_InitRefundReply_14_1">
+    <wsdl:part element="docrefund_initrefundreply_14_1:DocRefund_InitRefundReply" name="DocRefund_InitRefundReply_14_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_ProcessRefund_13_1">
+    <wsdl:part element="docrefund_processrefund_13_1:DocRefund_ProcessRefund" name="DocRefund_ProcessRefund_13_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_ProcessRefundReply_13_1">
+    <wsdl:part element="docrefund_processrefundreply_13_1:DocRefund_ProcessRefundReply" name="DocRefund_ProcessRefundReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_SearchRefundRule_5_1">
+    <wsdl:part element="docrefund_searchrefundrule_5_1:DocRefund_SearchRefundRule" name="DocRefund_SearchRefundRule_5_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_SearchRefundRuleReply_5_1">
+    <wsdl:part element="docrefund_searchrefundrulereply_5_1:DocRefund_SearchRefundRuleReply" name="DocRefund_SearchRefundRuleReply_5_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_UpdateRefund_14_1">
+    <wsdl:part element="docrefund_updaterefund_14_1:DocRefund_UpdateRefund" name="DocRefund_UpdateRefund_14_1" />
+  </wsdl:message>
+  <wsdl:message name="DocRefund_UpdateRefundReply_14_1">
+    <wsdl:part element="docrefund_updaterefundreply_14_1:DocRefund_UpdateRefundReply" name="DocRefund_UpdateRefundReply_14_1" />
+  </wsdl:message>
+  <wsdl:message name="FOP_CreateFormOfPayment_11_1">
+    <wsdl:part element="fop_createformofpayment_11_1:FOP_CreateFormOfPayment" name="FOP_CreateFormOfPayment_11_1" />
+  </wsdl:message>
+  <wsdl:message name="FOP_CreateFormOfPayment_15_4">
+    <wsdl:part element="fop_createformofpayment_15_4:FOP_CreateFormOfPayment" name="FOP_CreateFormOfPayment_15_4" />
+  </wsdl:message>
+  <wsdl:message name="FOP_CreateFormOfPaymentReply_11_1">
+    <wsdl:part element="fop_createformofpaymentreply_11_1:FOP_CreateFormOfPaymentReply" name="FOP_CreateFormOfPaymentReply_11_1" />
+  </wsdl:message>
+  <wsdl:message name="FOP_CreateFormOfPaymentReply_15_4">
+    <wsdl:part element="fop_createformofpaymentreply_15_4:FOP_CreateFormOfPaymentReply" name="FOP_CreateFormOfPaymentReply_15_4" />
+  </wsdl:message>
+  <wsdl:message name="Fare_CheckRules_7_1">
+    <wsdl:part element="fare_checkrules_7_1:Fare_CheckRules" name="Fare_CheckRules_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_CheckRulesReply_7_1">
+    <wsdl:part element="fare_checkrulesreply_7_1:Fare_CheckRulesReply" name="Fare_CheckRulesReply_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_DisplayFaresForCityPair_12_1">
+    <wsdl:part element="fare_displayfaresforcitypair_12_1:Fare_DisplayFaresForCityPair" name="Fare_DisplayFaresForCityPair_12_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_DisplayFaresForCityPairReply_12_1">
+    <wsdl:part element="fare_displayfaresforcitypairreply_12_1:Fare_DisplayFaresForCityPairReply" name="Fare_DisplayFaresForCityPairReply_12_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_GetFareRules_10_1">
+    <wsdl:part element="fare_getfarerules_10_1:Fare_GetFareRules" name="Fare_GetFareRules_10_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_GetFareRulesReply_10_1">
+    <wsdl:part element="fare_getfarerulesreply_10_1:Fare_GetFareRulesReply" name="Fare_GetFareRulesReply_10_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativeBestPricingWithoutPNR_13_2">
+    <wsdl:part element="fare_informativebestpricingwithoutpnr_13_2:Fare_InformativeBestPricingWithoutPNR" name="Fare_InformativeBestPricingWithoutPNR_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativeBestPricingWithoutPNR_14_1">
+    <wsdl:part element="fare_informativebestpricingwithoutpnr_14_1:Fare_InformativeBestPricingWithoutPNR" name="Fare_InformativeBestPricingWithoutPNR_14_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativeBestPricingWithoutPNRReply_13_2">
+    <wsdl:part element="fare_informativebestpricingwithoutpnrreply_13_2:Fare_InformativeBestPricingWithoutPNRReply" name="Fare_InformativeBestPricingWithoutPNRReply_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativeBestPricingWithoutPNRReply_14_1">
+    <wsdl:part element="fare_informativebestpricingwithoutpnrreply_14_1:Fare_InformativeBestPricingWithoutPNRReply" name="Fare_InformativeBestPricingWithoutPNRReply_14_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativePricingWithoutPNR_13_2">
+    <wsdl:part element="fare_informativepricingwithoutpnr_13_2:Fare_InformativePricingWithoutPNR" name="Fare_InformativePricingWithoutPNR_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativePricingWithoutPNR_15_1">
+    <wsdl:part element="fare_informativepricingwithoutpnr_15_1:Fare_InformativePricingWithoutPNR" name="Fare_InformativePricingWithoutPNR_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativePricingWithoutPNRReply_13_2">
+    <wsdl:part element="fare_informativepricingwithoutpnrreply_13_2:Fare_InformativePricingWithoutPNRReply" name="Fare_InformativePricingWithoutPNRReply_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_InformativePricingWithoutPNRReply_15_1">
+    <wsdl:part element="fare_informativepricingwithoutpnrreply_15_1:Fare_InformativePricingWithoutPNRReply" name="Fare_InformativePricingWithoutPNRReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerCalendar_14_3">
+    <wsdl:part element="fare_masterpricercalendar_14_3:Fare_MasterPricerCalendar" name="Fare_MasterPricerCalendar_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerCalendarReply_14_3">
+    <wsdl:part element="fare_masterpricercalendarreply_14_3:Fare_MasterPricerCalendarReply" name="Fare_MasterPricerCalendarReply_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerExpertSearch_12_2">
+    <wsdl:part element="fare_masterpricerexpertsearch_12_2:Fare_MasterPricerExpertSearch" name="Fare_MasterPricerExpertSearch_12_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerExpertSearch_14_3">
+    <wsdl:part element="fare_masterpricerexpertsearch_14_3:Fare_MasterPricerExpertSearch" name="Fare_MasterPricerExpertSearch_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerExpertSearchReply_12_2">
+    <wsdl:part element="fare_masterpricerexpertsearchreply_12_2:Fare_MasterPricerExpertSearchReply" name="Fare_MasterPricerExpertSearchReply_12_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerExpertSearchReply_14_3">
+    <wsdl:part element="fare_masterpricerexpertsearchreply_14_3:Fare_MasterPricerExpertSearchReply" name="Fare_MasterPricerExpertSearchReply_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerTravelBoardSearch_14_3">
+    <wsdl:part element="fare_masterpricertravelboardsearch_14_3:Fare_MasterPricerTravelBoardSearch" name="Fare_MasterPricerTravelBoardSearch_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Fare_MasterPricerTravelBoardSearchReply_14_3">
+    <wsdl:part element="fare_masterpricertravelboardsearchreply_14_3:Fare_MasterPricerTravelBoardSearchReply" name="Fare_MasterPricerTravelBoardSearchReply_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithBookingClass_13_2">
+    <wsdl:part element="fare_pricepnrwithbookingclass_13_2:Fare_PricePNRWithBookingClass" name="Fare_PricePNRWithBookingClass_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithBookingClass_16_1">
+    <wsdl:part element="fare_pricepnrwithbookingclass_16_1:Fare_PricePNRWithBookingClass" name="Fare_PricePNRWithBookingClass_16_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithBookingClassReply_13_2">
+    <wsdl:part element="fare_pricepnrwithbookingclassreply_13_2:Fare_PricePNRWithBookingClassReply" name="Fare_PricePNRWithBookingClassReply_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithBookingClassReply_16_1">
+    <wsdl:part element="fare_pricepnrwithbookingclassreply_16_1:Fare_PricePNRWithBookingClassReply" name="Fare_PricePNRWithBookingClassReply_16_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithLowerFares_13_2">
+    <wsdl:part element="fare_pricepnrwithlowerfares_13_2:Fare_PricePNRWithLowerFares" name="Fare_PricePNRWithLowerFares_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithLowerFares_16_1">
+    <wsdl:part element="fare_pricepnrwithlowerfares_16_1:Fare_PricePNRWithLowerFares" name="Fare_PricePNRWithLowerFares_16_1" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithLowerFaresReply_13_2">
+    <wsdl:part element="fare_pricepnrwithlowerfaresreply_13_2:Fare_PricePNRWithLowerFaresReply" name="Fare_PricePNRWithLowerFaresReply_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Fare_PricePNRWithLowerFaresReply_16_1">
+    <wsdl:part element="fare_pricepnrwithlowerfaresreply_16_1:Fare_PricePNRWithLowerFaresReply" name="Fare_PricePNRWithLowerFaresReply_16_1" />
+  </wsdl:message>
+  <wsdl:message name="Hotel_Sell_13_7">
+    <wsdl:part element="hotel_sell_13_7:Hotel_Sell" name="Hotel_Sell_13_7" />
+  </wsdl:message>
+  <wsdl:message name="Hotel_Sell_15_4">
+    <wsdl:part element="hotel_sell_15_4:Hotel_Sell" name="Hotel_Sell_15_4" />
+  </wsdl:message>
+  <wsdl:message name="Hotel_SellReply_13_7">
+    <wsdl:part element="hotel_sellreply_13_7:Hotel_SellReply" name="Hotel_SellReply_13_7" />
+  </wsdl:message>
+  <wsdl:message name="Hotel_SellReply_15_4">
+    <wsdl:part element="hotel_sellreply_15_4:Hotel_SellReply" name="Hotel_SellReply_15_4" />
+  </wsdl:message>
+  <wsdl:message name="MiniRule_GetFromPricing_11_1">
+    <wsdl:part element="minirule_getfrompricing_11_1:MiniRule_GetFromPricing" name="MiniRule_GetFromPricing_11_1" />
+  </wsdl:message>
+  <wsdl:message name="MiniRule_GetFromPricingReply_11_1">
+    <wsdl:part element="minirule_getfrompricingreply_11_1:MiniRule_GetFromPricingReply" name="MiniRule_GetFromPricingReply_11_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_AddFrequentFlyer_4_1">
+    <wsdl:part element="pnr_addfrequentflyer_4_1:PNR_AddFrequentFlyer" name="PNR_AddFrequentFlyer_4_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_AddFrequentFlyerReply_4_1">
+    <wsdl:part element="pnr_addfrequentflyerreply_4_1:PNR_AddFrequentFlyerReply" name="PNR_AddFrequentFlyerReply_4_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_AddMultiElements_14_1">
+    <wsdl:part element="pnr_addmultielements_14_1:PNR_AddMultiElements" name="PNR_AddMultiElements_14_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_AddMultiElements_15_1">
+    <wsdl:part element="pnr_addmultielements_15_1:PNR_AddMultiElements" name="PNR_AddMultiElements_15_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_Cancel_14_1">
+    <wsdl:part element="pnr_cancel_14_1:PNR_Cancel" name="PNR_Cancel_14_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_Cancel_15_1">
+    <wsdl:part element="pnr_cancel_15_1:PNR_Cancel" name="PNR_Cancel_15_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_Ignore_4_1">
+    <wsdl:part element="pnr_ignore_4_1:PNR_Ignore" name="PNR_Ignore_4_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_IgnoreReply_4_1">
+    <wsdl:part element="pnr_ignorereply_4_1:PNR_IgnoreReply" name="PNR_IgnoreReply_4_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_List_0_1">
+    <wsdl:part element="pnr_list_0_1:PNR_List" name="PNR_List_0_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_Reply_14_1">
+    <wsdl:part element="pnr_reply_14_1:PNR_Reply" name="PNR_Reply_14_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_Reply_15_1">
+    <wsdl:part element="pnr_reply_15_1:PNR_Reply" name="PNR_Reply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_Retrieve_14_1">
+    <wsdl:part element="pnr_retrieve_14_1:PNR_Retrieve" name="PNR_Retrieve_14_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_Retrieve_15_1">
+    <wsdl:part element="pnr_retrieve_15_1:PNR_Retrieve" name="PNR_Retrieve_15_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_RetrieveByRecLoc_14_1">
+    <wsdl:part element="pnr_retrievebyrecloc_14_1:PNR_RetrieveByRecLoc" name="PNR_RetrieveByRecLoc_14_1" />
+  </wsdl:message>
+  <wsdl:message name="PNR_RetrieveByRecLocReply_14_1">
+    <wsdl:part element="pnr_retrievebyreclocreply_14_1:PNR_RetrieveByRecLocReply" name="PNR_RetrieveByRecLocReply_14_1" />
+  </wsdl:message>
+  <wsdl:message name="QueueMode_ProcessQueue_9_1">
+    <wsdl:part element="queuemode_processqueue_9_1:QueueMode_ProcessQueue" name="QueueMode_ProcessQueue_9_1" />
+  </wsdl:message>
+  <wsdl:message name="QueueMode_ProcessQueueReply_9_1">
+    <wsdl:part element="queuemode_processqueuereply_9_1:QueueMode_ProcessQueueReply" name="QueueMode_ProcessQueueReply_9_1" />
+  </wsdl:message>
+  <wsdl:message name="Queue_List_11_1">
+    <wsdl:part element="queue_list_11_1:Queue_List" name="Queue_List_11_1" />
+  </wsdl:message>
+  <wsdl:message name="Queue_ListReply_11_1">
+    <wsdl:part element="queue_listreply_11_1:Queue_ListReply" name="Queue_ListReply_11_1" />
+  </wsdl:message>
+  <wsdl:message name="Queue_PlacePNR_3_1">
+    <wsdl:part element="queue_placepnr_3_1:Queue_PlacePNR" name="Queue_PlacePNR_3_1" />
+  </wsdl:message>
+  <wsdl:message name="Queue_PlacePNRReply_3_1">
+    <wsdl:part element="queue_placepnrreply_3_1:Queue_PlacePNRReply" name="Queue_PlacePNRReply_3_1" />
+  </wsdl:message>
+  <wsdl:message name="Queue_RemoveItem_3_1">
+    <wsdl:part element="queue_removeitem_3_1:Queue_RemoveItem" name="Queue_RemoveItem_3_1" />
+  </wsdl:message>
+  <wsdl:message name="Queue_RemoveItemReply_3_1">
+    <wsdl:part element="queue_removeitemreply_3_1:Queue_RemoveItemReply" name="Queue_RemoveItemReply_3_1" />
+  </wsdl:message>
+  <wsdl:message name="Security_Authenticate_6_1">
+    <wsdl:part element="security_authenticate_6_1:Security_Authenticate" name="Security_Authenticate_6_1" />
+  </wsdl:message>
+  <wsdl:message name="Security_AuthenticateReply_6_1">
+    <wsdl:part element="security_authenticatereply_6_1:Security_AuthenticateReply" name="Security_AuthenticateReply_6_1" />
+  </wsdl:message>
+  <wsdl:message name="Security_SignOut_4_1">
+    <wsdl:part element="security_signout_4_1:Security_SignOut" name="Security_SignOut_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Security_SignOutReply_4_1">
+    <wsdl:part element="security_signoutreply_4_1:Security_SignOutReply" name="Security_SignOutReply_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Service_IntegratedCatalogue_15_1">
+    <wsdl:part element="service_integratedcatalogue_15_1:Service_IntegratedCatalogue" name="Service_IntegratedCatalogue_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Service_IntegratedCatalogue_16_1">
+    <wsdl:part element="service_integratedcatalogue_16_1:Service_IntegratedCatalogue" name="Service_IntegratedCatalogue_16_1" />
+  </wsdl:message>
+  <wsdl:message name="Service_IntegratedCatalogueReply_15_1">
+    <wsdl:part element="service_integratedcataloguereply_15_1:Service_IntegratedCatalogueReply" name="Service_IntegratedCatalogueReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Service_IntegratedCatalogueReply_16_1">
+    <wsdl:part element="service_integratedcataloguereply_16_1:Service_IntegratedCatalogueReply" name="Service_IntegratedCatalogueReply_16_1" />
+  </wsdl:message>
+  <wsdl:message name="Service_IntegratedPricing_15_1">
+    <wsdl:part element="service_integratedpricing_15_1:Service_IntegratedPricing" name="Service_IntegratedPricing_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Service_IntegratedPricingReply_15_1">
+    <wsdl:part element="service_integratedpricingreply_15_1:Service_IntegratedPricingReply" name="Service_IntegratedPricingReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ATCShopperMasterPricerCalendar_13_1">
+    <wsdl:part element="ticket_atcshoppermasterpricercalendar_13_1:Ticket_ATCShopperMasterPricerCalendar" name="Ticket_ATCShopperMasterPricerCalendar_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ATCShopperMasterPricerCalendarReply_13_1">
+    <wsdl:part element="ticket_atcshoppermasterpricercalendarreply_13_1:Ticket_ATCShopperMasterPricerCalendarReply" name="Ticket_ATCShopperMasterPricerCalendarReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ATCShopperMasterPricerTravelBoardSearch_13_1">
+    <wsdl:part element="ticket_atcshoppermasterpricertravelboardsearch_13_1:Ticket_ATCShopperMasterPricerTravelBoardSearch" name="Ticket_ATCShopperMasterPricerTravelBoardSearch_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ATCShopperMasterPricerTravelBoardSearchReply_13_1">
+    <wsdl:part element="ticket_atcshoppermasterpricertravelboardsearchreply_13_1:Ticket_ATCShopperMasterPricerTravelBoardSearchReply" name="Ticket_ATCShopperMasterPricerTravelBoardSearchReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_AutomaticUpdate_6_1">
+    <wsdl:part element="ticket_automaticupdate_6_1:Ticket_AutomaticUpdate" name="Ticket_AutomaticUpdate_6_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_AutomaticUpdate_12_1">
+    <wsdl:part element="ticket_automaticupdate_12_1:Ticket_AutomaticUpdate" name="Ticket_AutomaticUpdate_12_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_AutomaticUpdateReply_6_1">
+    <wsdl:part element="ticket_automaticupdatereply_6_1:Ticket_AutomaticUpdateReply" name="Ticket_AutomaticUpdateReply_6_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_AutomaticUpdateReply_12_1">
+    <wsdl:part element="ticket_automaticupdatereply_12_1:Ticket_AutomaticUpdateReply" name="Ticket_AutomaticUpdateReply_12_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CheckEligibility_13_1">
+    <wsdl:part element="ticket_checkeligibility_13_1:Ticket_CheckEligibility" name="Ticket_CheckEligibility_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CheckEligibilityReply_13_1">
+    <wsdl:part element="ticket_checkeligibilityreply_13_1:Ticket_CheckEligibilityReply" name="Ticket_CheckEligibilityReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateManualTST_7_1">
+    <wsdl:part element="ticket_createmanualtst_7_1:Ticket_CreateManualTST" name="Ticket_CreateManualTST_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateManualTST_13_1">
+    <wsdl:part element="ticket_createmanualtst_13_1:Ticket_CreateManualTST" name="Ticket_CreateManualTST_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateManualTSTReply_7_1">
+    <wsdl:part element="ticket_createmanualtstreply_7_1:Ticket_CreateManualTSTReply" name="Ticket_CreateManualTSTReply_7_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateManualTSTReply_13_1">
+    <wsdl:part element="ticket_createmanualtstreply_13_1:Ticket_CreateManualTSTReply" name="Ticket_CreateManualTSTReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateTSMFareElement_10_1">
+    <wsdl:part element="ticket_createtsmfareelement_10_1:Ticket_CreateTSMFareElement" name="Ticket_CreateTSMFareElement_10_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateTSMFareElementReply_10_1">
+    <wsdl:part element="ticket_createtsmfareelementreply_10_1:Ticket_CreateTSMFareElementReply" name="Ticket_CreateTSMFareElementReply_10_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateTSMFromPricing_9_1">
+    <wsdl:part element="ticket_createtsmfrompricing_9_1:Ticket_CreateTSMFromPricing" name="Ticket_CreateTSMFromPricing_9_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateTSMFromPricingReply_9_1">
+    <wsdl:part element="ticket_createtsmfrompricingreply_9_1:Ticket_CreateTSMFromPricingReply" name="Ticket_CreateTSMFromPricingReply_9_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateTSTFromPricing_4_1">
+    <wsdl:part element="ticket_createtstfrompricing_4_1:Ticket_CreateTSTFromPricing" name="Ticket_CreateTSTFromPricing_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreateTSTFromPricingReply_4_1">
+    <wsdl:part element="ticket_createtstfrompricingreply_4_1:Ticket_CreateTSTFromPricingReply" name="Ticket_CreateTSTFromPricingReply_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreditCardCheck_6_1">
+    <wsdl:part element="ticket_creditcardcheck_6_1:Ticket_CreditCardCheck" name="Ticket_CreditCardCheck_6_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_CreditCardCheckReply_6_1">
+    <wsdl:part element="ticket_creditcardcheckreply_6_1:Ticket_CreditCardCheckReply" name="Ticket_CreditCardCheckReply_6_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DeleteTSMP_8_1">
+    <wsdl:part element="ticket_deletetsmp_8_1:Ticket_DeleteTSMP" name="Ticket_DeleteTSMP_8_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DeleteTSMPReply_8_1">
+    <wsdl:part element="ticket_deletetsmpreply_8_1:Ticket_DeleteTSMPReply" name="Ticket_DeleteTSMPReply_8_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DeleteTST_4_1">
+    <wsdl:part element="ticket_deletetst_4_1:Ticket_DeleteTST" name="Ticket_DeleteTST_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DeleteTSTReply_4_1">
+    <wsdl:part element="ticket_deletetstreply_4_1:Ticket_DeleteTSTReply" name="Ticket_DeleteTSTReply_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTSMFareElement_13_1">
+    <wsdl:part element="ticket_displaytsmfareelement_13_1:Ticket_DisplayTSMFareElement" name="Ticket_DisplayTSMFareElement_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTSMFareElementReply_13_1">
+    <wsdl:part element="ticket_displaytsmfareelementreply_13_1:Ticket_DisplayTSMFareElementReply" name="Ticket_DisplayTSMFareElementReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTSMP_13_1">
+    <wsdl:part element="ticket_displaytsmp_13_1:Ticket_DisplayTSMP" name="Ticket_DisplayTSMP_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTSMPReply_13_1">
+    <wsdl:part element="ticket_displaytsmpreply_13_1:Ticket_DisplayTSMPReply" name="Ticket_DisplayTSMPReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTST_13_1">
+    <wsdl:part element="ticket_displaytst_13_1:Ticket_DisplayTST" name="Ticket_DisplayTST_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTST_15_1">
+    <wsdl:part element="ticket_displaytst_15_1:Ticket_DisplayTST" name="Ticket_DisplayTST_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTSTReply_13_1">
+    <wsdl:part element="ticket_displaytstreply_13_1:Ticket_DisplayTSTReply" name="Ticket_DisplayTSTReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_DisplayTSTReply_15_1">
+    <wsdl:part element="ticket_displaytstreply_15_1:Ticket_DisplayTSTReply" name="Ticket_DisplayTSTReply_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ProcessEDoc_15_2">
+    <wsdl:part element="ticket_processedoc_15_2:Ticket_ProcessEDoc" name="Ticket_ProcessEDoc_15_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ProcessEDocReply_15_2">
+    <wsdl:part element="ticket_processedocreply_15_2:Ticket_ProcessEDocReply" name="Ticket_ProcessEDocReply_15_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ProcessETicket_4_1">
+    <wsdl:part element="ticket_processeticket_4_1:Ticket_ProcessETicket" name="Ticket_ProcessETicket_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ProcessETicketReply_4_1">
+    <wsdl:part element="ticket_processeticketreply_4_1:Ticket_ProcessETicketReply" name="Ticket_ProcessETicketReply_4_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ReissueBestPricingWithoutPNR_8_1">
+    <wsdl:part element="ticket_reissuebestpricingwithoutpnr_8_1:Ticket_ReissueBestPricingWithoutPNR" name="Ticket_ReissueBestPricingWithoutPNR_8_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ReissueBestPricingWithoutPNRReply_8_1">
+    <wsdl:part element="ticket_reissuebestpricingwithoutpnrreply_8_1:Ticket_ReissueBestPricingWithoutPNRReply" name="Ticket_ReissueBestPricingWithoutPNRReply_8_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ReissueConfirmedPricing_13_2">
+    <wsdl:part element="ticket_reissueconfirmedpricing_13_2:Ticket_ReissueConfirmedPricing" name="Ticket_ReissueConfirmedPricing_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_ReissueConfirmedPricingReply_13_2">
+    <wsdl:part element="ticket_reissueconfirmedpricingreply_13_2:Ticket_ReissueConfirmedPricingReply" name="Ticket_ReissueConfirmedPricingReply_13_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RepricePNRWithBookingClass_12_2">
+    <wsdl:part element="ticket_repricepnrwithbookingclass_12_2:Ticket_RepricePNRWithBookingClass" name="Ticket_RepricePNRWithBookingClass_12_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RepricePNRWithBookingClass_14_3">
+    <wsdl:part element="ticket_repricepnrwithbookingclass_14_3:Ticket_RepricePNRWithBookingClass" name="Ticket_RepricePNRWithBookingClass_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RepricePNRWithBookingClassReply_12_2">
+    <wsdl:part element="ticket_repricepnrwithbookingclassreply_12_2:Ticket_RepricePNRWithBookingClassReply" name="Ticket_RepricePNRWithBookingClassReply_12_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RepricePNRWithBookingClassReply_14_3">
+    <wsdl:part element="ticket_repricepnrwithbookingclassreply_14_3:Ticket_RepricePNRWithBookingClassReply" name="Ticket_RepricePNRWithBookingClassReply_14_3" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RepricePNRWithLowestFare_12_2">
+    <wsdl:part element="ticket_repricepnrwithlowestfare_12_2:Ticket_RepricePNRWithLowestFare" name="Ticket_RepricePNRWithLowestFare_12_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RepricePNRWithLowestFareReply_12_2">
+    <wsdl:part element="ticket_repricepnrwithlowestfarereply_12_2:Ticket_RepricePNRWithLowestFareReply" name="Ticket_RepricePNRWithLowestFareReply_12_2" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RetrieveListOfTSM_9_1">
+    <wsdl:part element="ticket_retrievelistoftsm_9_1:Ticket_RetrieveListOfTSM" name="Ticket_RetrieveListOfTSM_9_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_RetrieveListOfTSMReply_9_1">
+    <wsdl:part element="ticket_retrievelistoftsmreply_9_1:Ticket_RetrieveListOfTSMReply" name="Ticket_RetrieveListOfTSMReply_9_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_UpdateTSMP_13_1">
+    <wsdl:part element="ticket_updatetsmp_13_1:Ticket_UpdateTSMP" name="Ticket_UpdateTSMP_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_UpdateTSMPReply_13_1">
+    <wsdl:part element="ticket_updatetsmpreply_13_1:Ticket_UpdateTSMPReply" name="Ticket_UpdateTSMPReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_UpdateTST_13_1">
+    <wsdl:part element="ticket_updatetst_13_1:Ticket_UpdateTST" name="Ticket_UpdateTST_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_UpdateTST_15_1">
+    <wsdl:part element="ticket_updatetst_15_1:Ticket_UpdateTST" name="Ticket_UpdateTST_15_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_UpdateTSTReply_13_1">
+    <wsdl:part element="ticket_updatetstreply_13_1:Ticket_UpdateTSTReply" name="Ticket_UpdateTSTReply_13_1" />
+  </wsdl:message>
+  <wsdl:message name="Ticket_UpdateTSTReply_15_1">
+    <wsdl:part element="ticket_updatetstreply_15_1:Ticket_UpdateTSTReply" name="Ticket_UpdateTSTReply_15_1" />
+  </wsdl:message>
+  <wsdl:portType name="AmadeusWebServicesPT">
+    <wsdl:operation name="Air_FlightInfo">
+      <wsdl:input message="tns:Air_FlightInfo_7_1" />
+      <wsdl:output message="tns:Air_FlightInfoReply_7_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Air_MultiAvailability">
+      <wsdl:input message="tns:Air_MultiAvailability_13_2" />
+      <wsdl:output message="tns:Air_MultiAvailabilityReply_13_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Air_RebookAirSegment">
+      <wsdl:input message="tns:Air_RebookAirSegment_14_1" />
+      <wsdl:output message="tns:Air_RebookAirSegmentReply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Air_RetrieveSeatMap">
+      <wsdl:input message="tns:Air_RetrieveSeatMap_14_2" />
+      <wsdl:output message="tns:Air_RetrieveSeatMapReply_14_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Air_SellFromRecommendation">
+      <wsdl:input message="tns:Air_SellFromRecommendation_5_2" />
+      <wsdl:output message="tns:Air_SellFromRecommendationReply_5_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_Availability">
+      <wsdl:input message="tns:Car_Availability_14_3" />
+      <wsdl:output message="tns:Car_AvailabilityReply_14_3" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_Availability">
+      <wsdl:input message="tns:Car_Availability_17_1" />
+      <wsdl:output message="tns:Car_AvailabilityReply_17_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_LocationList">
+      <wsdl:input message="tns:Car_LocationList_7_1" />
+      <wsdl:output message="tns:Car_LocationListReply_7_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_LocationList">
+      <wsdl:input message="tns:Car_LocationList_13_1" />
+      <wsdl:output message="tns:Car_LocationListReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_RateInformationFromAvailability">
+      <wsdl:input message="tns:Car_RateInformationFromAvailability_10_1" />
+      <wsdl:output message="tns:Car_RateInformationFromAvailabilityReply_10_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_RateInformationFromAvailability">
+      <wsdl:input message="tns:Car_RateInformationFromAvailability_14_1" />
+      <wsdl:output message="tns:Car_RateInformationFromAvailabilityReply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_RateInformationFromCarSegment">
+      <wsdl:input message="tns:Car_RateInformationFromCarSegment_5_2" />
+      <wsdl:output message="tns:Car_RateInformationFromCarSegmentReply_5_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Car_Sell">
+      <wsdl:input message="tns:Car_Sell_13_1" />
+      <wsdl:output message="tns:Car_SellReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Command_Cryptic">
+      <wsdl:input message="tns:Command_Cryptic_7_3" />
+      <wsdl:output message="tns:Command_CrypticReply_7_3" />
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueCombined">
+      <wsdl:input message="tns:DocIssuance_IssueCombined_9_2" />
+      <wsdl:output message="tns:DocIssuance_IssueCombinedReply_9_2" />
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueCombined">
+      <wsdl:input message="tns:DocIssuance_IssueCombined_15_1" />
+      <wsdl:output message="tns:DocIssuance_IssueCombinedReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueMiscellaneousDocuments">
+      <wsdl:input message="tns:DocIssuance_IssueMiscellaneousDocuments_9_2" />
+      <wsdl:output message="tns:DocIssuance_IssueMiscellaneousDocumentsReply_9_2" />
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueMiscellaneousDocuments">
+      <wsdl:input message="tns:DocIssuance_IssueMiscellaneousDocuments_15_1" />
+      <wsdl:output message="tns:DocIssuance_IssueMiscellaneousDocumentsReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueTicket">
+      <wsdl:input message="tns:DocIssuance_IssueTicket_9_1" />
+      <wsdl:output message="tns:DocIssuance_IssueTicketReply_9_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueTicket">
+      <wsdl:input message="tns:DocIssuance_IssueTicket_15_1" />
+      <wsdl:output message="tns:DocIssuance_IssueTicketReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_CalculateRefund">
+      <wsdl:input message="tns:DocRefund_CalculateRefund_15_1" />
+      <wsdl:output message="tns:DocRefund_CalculateRefundReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_CalculateRefund">
+      <wsdl:input message="tns:DocRefund_CalculateRefund_16_1" />
+      <wsdl:output message="tns:DocRefund_CalculateRefundReply_16_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_IgnoreRefund">
+      <wsdl:input message="tns:DocRefund_IgnoreRefund_9_2" />
+      <wsdl:output message="tns:DocRefund_IgnoreRefundReply_9_2" />
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_InitRefund">
+      <wsdl:input message="tns:DocRefund_InitRefund_14_1" />
+      <wsdl:output message="tns:DocRefund_InitRefundReply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_ProcessRefund">
+      <wsdl:input message="tns:DocRefund_ProcessRefund_13_1" />
+      <wsdl:output message="tns:DocRefund_ProcessRefundReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_SearchRefundRule">
+      <wsdl:input message="tns:DocRefund_SearchRefundRule_5_1" />
+      <wsdl:output message="tns:DocRefund_SearchRefundRuleReply_5_1" />
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_UpdateRefund">
+      <wsdl:input message="tns:DocRefund_UpdateRefund_14_1" />
+      <wsdl:output message="tns:DocRefund_UpdateRefundReply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="FOP_CreateFormOfPayment">
+      <wsdl:input message="tns:FOP_CreateFormOfPayment_11_1" />
+      <wsdl:output message="tns:FOP_CreateFormOfPaymentReply_11_1" />
+    </wsdl:operation>
+    <wsdl:operation name="FOP_CreateFormOfPayment">
+      <wsdl:input message="tns:FOP_CreateFormOfPayment_15_4" />
+      <wsdl:output message="tns:FOP_CreateFormOfPaymentReply_15_4" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_CheckRules">
+      <wsdl:input message="tns:Fare_CheckRules_7_1" />
+      <wsdl:output message="tns:Fare_CheckRulesReply_7_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_DisplayFaresForCityPair">
+      <wsdl:input message="tns:Fare_DisplayFaresForCityPair_12_1" />
+      <wsdl:output message="tns:Fare_DisplayFaresForCityPairReply_12_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_GetFareRules">
+      <wsdl:input message="tns:Fare_GetFareRules_10_1" />
+      <wsdl:output message="tns:Fare_GetFareRulesReply_10_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativeBestPricingWithoutPNR">
+      <wsdl:input message="tns:Fare_InformativeBestPricingWithoutPNR_13_2" />
+      <wsdl:output message="tns:Fare_InformativeBestPricingWithoutPNRReply_13_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativeBestPricingWithoutPNR">
+      <wsdl:input message="tns:Fare_InformativeBestPricingWithoutPNR_14_1" />
+      <wsdl:output message="tns:Fare_InformativeBestPricingWithoutPNRReply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativePricingWithoutPNR">
+      <wsdl:input message="tns:Fare_InformativePricingWithoutPNR_13_2" />
+      <wsdl:output message="tns:Fare_InformativePricingWithoutPNRReply_13_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativePricingWithoutPNR">
+      <wsdl:input message="tns:Fare_InformativePricingWithoutPNR_15_1" />
+      <wsdl:output message="tns:Fare_InformativePricingWithoutPNRReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerCalendar">
+      <wsdl:input message="tns:Fare_MasterPricerCalendar_14_3" />
+      <wsdl:output message="tns:Fare_MasterPricerCalendarReply_14_3" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerExpertSearch">
+      <wsdl:input message="tns:Fare_MasterPricerExpertSearch_12_2" />
+      <wsdl:output message="tns:Fare_MasterPricerExpertSearchReply_12_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerExpertSearch">
+      <wsdl:input message="tns:Fare_MasterPricerExpertSearch_14_3" />
+      <wsdl:output message="tns:Fare_MasterPricerExpertSearchReply_14_3" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerTravelBoardSearch">
+      <wsdl:input message="tns:Fare_MasterPricerTravelBoardSearch_14_3" />
+      <wsdl:output message="tns:Fare_MasterPricerTravelBoardSearchReply_14_3" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithBookingClass">
+      <wsdl:input message="tns:Fare_PricePNRWithBookingClass_13_2" />
+      <wsdl:output message="tns:Fare_PricePNRWithBookingClassReply_13_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithBookingClass">
+      <wsdl:input message="tns:Fare_PricePNRWithBookingClass_16_1" />
+      <wsdl:output message="tns:Fare_PricePNRWithBookingClassReply_16_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithLowerFares">
+      <wsdl:input message="tns:Fare_PricePNRWithLowerFares_13_2" />
+      <wsdl:output message="tns:Fare_PricePNRWithLowerFaresReply_13_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithLowerFares">
+      <wsdl:input message="tns:Fare_PricePNRWithLowerFares_16_1" />
+      <wsdl:output message="tns:Fare_PricePNRWithLowerFaresReply_16_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_Sell">
+      <wsdl:input message="tns:Hotel_Sell_13_7" />
+      <wsdl:output message="tns:Hotel_SellReply_13_7" />
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_Sell">
+      <wsdl:input message="tns:Hotel_Sell_15_4" />
+      <wsdl:output message="tns:Hotel_SellReply_15_4" />
+    </wsdl:operation>
+    <wsdl:operation name="MiniRule_GetFromPricing">
+      <wsdl:input message="tns:MiniRule_GetFromPricing_11_1" />
+      <wsdl:output message="tns:MiniRule_GetFromPricingReply_11_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_AddFrequentFlyer">
+      <wsdl:input message="tns:PNR_AddFrequentFlyer_4_1" />
+      <wsdl:output message="tns:PNR_AddFrequentFlyerReply_4_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_AddMultiElements">
+      <wsdl:input message="tns:PNR_AddMultiElements_14_1" />
+      <wsdl:output message="tns:PNR_Reply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_AddMultiElements">
+      <wsdl:input message="tns:PNR_AddMultiElements_15_1" />
+      <wsdl:output message="tns:PNR_Reply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Cancel">
+      <wsdl:input message="tns:PNR_Cancel_14_1" />
+      <wsdl:output message="tns:PNR_Reply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Cancel">
+      <wsdl:input message="tns:PNR_Cancel_15_1" />
+      <wsdl:output message="tns:PNR_Reply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Ignore">
+      <wsdl:input message="tns:PNR_Ignore_4_1" />
+      <wsdl:output message="tns:PNR_IgnoreReply_4_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve">
+      <wsdl:input message="tns:PNR_Retrieve_14_1" />
+      <wsdl:output message="tns:PNR_Reply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve">
+      <wsdl:input message="tns:PNR_Retrieve_15_1" />
+      <wsdl:output message="tns:PNR_Reply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve2">
+      <wsdl:input message="tns:PNR_Retrieve_14_1" />
+      <wsdl:output message="tns:PNR_List_0_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve2">
+      <wsdl:input message="tns:PNR_Retrieve_15_1" />
+      <wsdl:output message="tns:PNR_List_0_1" />
+    </wsdl:operation>
+    <wsdl:operation name="PNR_RetrieveByRecLoc">
+      <wsdl:input message="tns:PNR_RetrieveByRecLoc_14_1" />
+      <wsdl:output message="tns:PNR_RetrieveByRecLocReply_14_1" />
+    </wsdl:operation>
+    <wsdl:operation name="QueueMode_ProcessQueue">
+      <wsdl:input message="tns:QueueMode_ProcessQueue_9_1" />
+      <wsdl:output message="tns:QueueMode_ProcessQueueReply_9_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Queue_List">
+      <wsdl:input message="tns:Queue_List_11_1" />
+      <wsdl:output message="tns:Queue_ListReply_11_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Queue_PlacePNR">
+      <wsdl:input message="tns:Queue_PlacePNR_3_1" />
+      <wsdl:output message="tns:Queue_PlacePNRReply_3_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Queue_RemoveItem">
+      <wsdl:input message="tns:Queue_RemoveItem_3_1" />
+      <wsdl:output message="tns:Queue_RemoveItemReply_3_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Security_Authenticate">
+      <wsdl:input message="tns:Security_Authenticate_6_1" />
+      <wsdl:output message="tns:Security_AuthenticateReply_6_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Security_SignOut">
+      <wsdl:input message="tns:Security_SignOut_4_1" />
+      <wsdl:output message="tns:Security_SignOutReply_4_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Service_IntegratedCatalogue">
+      <wsdl:input message="tns:Service_IntegratedCatalogue_15_1" />
+      <wsdl:output message="tns:Service_IntegratedCatalogueReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Service_IntegratedCatalogue">
+      <wsdl:input message="tns:Service_IntegratedCatalogue_16_1" />
+      <wsdl:output message="tns:Service_IntegratedCatalogueReply_16_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Service_IntegratedPricing">
+      <wsdl:input message="tns:Service_IntegratedPricing_15_1" />
+      <wsdl:output message="tns:Service_IntegratedPricingReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ATCShopperMasterPricerCalendar">
+      <wsdl:input message="tns:Ticket_ATCShopperMasterPricerCalendar_13_1" />
+      <wsdl:output message="tns:Ticket_ATCShopperMasterPricerCalendarReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ATCShopperMasterPricerTravelBoardSearch">
+      <wsdl:input message="tns:Ticket_ATCShopperMasterPricerTravelBoardSearch_13_1" />
+      <wsdl:output message="tns:Ticket_ATCShopperMasterPricerTravelBoardSearchReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_AutomaticUpdate">
+      <wsdl:input message="tns:Ticket_AutomaticUpdate_6_1" />
+      <wsdl:output message="tns:Ticket_AutomaticUpdateReply_6_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_AutomaticUpdate">
+      <wsdl:input message="tns:Ticket_AutomaticUpdate_12_1" />
+      <wsdl:output message="tns:Ticket_AutomaticUpdateReply_12_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CheckEligibility">
+      <wsdl:input message="tns:Ticket_CheckEligibility_13_1" />
+      <wsdl:output message="tns:Ticket_CheckEligibilityReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateManualTST">
+      <wsdl:input message="tns:Ticket_CreateManualTST_7_1" />
+      <wsdl:output message="tns:Ticket_CreateManualTSTReply_7_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateManualTST">
+      <wsdl:input message="tns:Ticket_CreateManualTST_13_1" />
+      <wsdl:output message="tns:Ticket_CreateManualTSTReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateTSMFareElement">
+      <wsdl:input message="tns:Ticket_CreateTSMFareElement_10_1" />
+      <wsdl:output message="tns:Ticket_CreateTSMFareElementReply_10_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateTSMFromPricing">
+      <wsdl:input message="tns:Ticket_CreateTSMFromPricing_9_1" />
+      <wsdl:output message="tns:Ticket_CreateTSMFromPricingReply_9_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateTSTFromPricing">
+      <wsdl:input message="tns:Ticket_CreateTSTFromPricing_4_1" />
+      <wsdl:output message="tns:Ticket_CreateTSTFromPricingReply_4_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreditCardCheck">
+      <wsdl:input message="tns:Ticket_CreditCardCheck_6_1" />
+      <wsdl:output message="tns:Ticket_CreditCardCheckReply_6_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DeleteTSMP">
+      <wsdl:input message="tns:Ticket_DeleteTSMP_8_1" />
+      <wsdl:output message="tns:Ticket_DeleteTSMPReply_8_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DeleteTST">
+      <wsdl:input message="tns:Ticket_DeleteTST_4_1" />
+      <wsdl:output message="tns:Ticket_DeleteTSTReply_4_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTSMFareElement">
+      <wsdl:input message="tns:Ticket_DisplayTSMFareElement_13_1" />
+      <wsdl:output message="tns:Ticket_DisplayTSMFareElementReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTSMP">
+      <wsdl:input message="tns:Ticket_DisplayTSMP_13_1" />
+      <wsdl:output message="tns:Ticket_DisplayTSMPReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTST">
+      <wsdl:input message="tns:Ticket_DisplayTST_13_1" />
+      <wsdl:output message="tns:Ticket_DisplayTSTReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTST">
+      <wsdl:input message="tns:Ticket_DisplayTST_15_1" />
+      <wsdl:output message="tns:Ticket_DisplayTSTReply_15_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ProcessEDoc">
+      <wsdl:input message="tns:Ticket_ProcessEDoc_15_2" />
+      <wsdl:output message="tns:Ticket_ProcessEDocReply_15_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ProcessETicket">
+      <wsdl:input message="tns:Ticket_ProcessETicket_4_1" />
+      <wsdl:output message="tns:Ticket_ProcessETicketReply_4_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ReissueBestPricingWithoutPNR">
+      <wsdl:input message="tns:Ticket_ReissueBestPricingWithoutPNR_8_1" />
+      <wsdl:output message="tns:Ticket_ReissueBestPricingWithoutPNRReply_8_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ReissueConfirmedPricing">
+      <wsdl:input message="tns:Ticket_ReissueConfirmedPricing_13_2" />
+      <wsdl:output message="tns:Ticket_ReissueConfirmedPricingReply_13_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RepricePNRWithBookingClass">
+      <wsdl:input message="tns:Ticket_RepricePNRWithBookingClass_12_2" />
+      <wsdl:output message="tns:Ticket_RepricePNRWithBookingClassReply_12_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RepricePNRWithBookingClass">
+      <wsdl:input message="tns:Ticket_RepricePNRWithBookingClass_14_3" />
+      <wsdl:output message="tns:Ticket_RepricePNRWithBookingClassReply_14_3" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RepricePNRWithLowestFare">
+      <wsdl:input message="tns:Ticket_RepricePNRWithLowestFare_12_2" />
+      <wsdl:output message="tns:Ticket_RepricePNRWithLowestFareReply_12_2" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RetrieveListOfTSM">
+      <wsdl:input message="tns:Ticket_RetrieveListOfTSM_9_1" />
+      <wsdl:output message="tns:Ticket_RetrieveListOfTSMReply_9_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_UpdateTSMP">
+      <wsdl:input message="tns:Ticket_UpdateTSMP_13_1" />
+      <wsdl:output message="tns:Ticket_UpdateTSMPReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_UpdateTST">
+      <wsdl:input message="tns:Ticket_UpdateTST_13_1" />
+      <wsdl:output message="tns:Ticket_UpdateTSTReply_13_1" />
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_UpdateTST">
+      <wsdl:input message="tns:Ticket_UpdateTST_15_1" />
+      <wsdl:output message="tns:Ticket_UpdateTSTReply_15_1" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding type="tns:AmadeusWebServicesPT" name="AmadeusWebServicesBinding">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Air_FlightInfo">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FLIREQ_07_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Air_MultiAvailability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/SATRQT_13_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Air_RebookAirSegment">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/ARBKUQ_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Air_RetrieveSeatMap">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/SMPREQ_14_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Air_SellFromRecommendation">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/ITAREQ_05_2_IA" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_Availability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCARRQ_14_3_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_Availability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCARRQ_17_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_LocationList">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCLLRQ_07_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_LocationList">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCLLRQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_RateInformationFromAvailability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCFARQ_10_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_RateInformationFromAvailability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCFARQ_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_RateInformationFromCarSegment">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCFSRQ_05_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Car_Sell">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/RCSSCQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Command_Cryptic">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/HSFREQ_07_3_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueCombined">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TCTMIQ_09_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueCombined">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TCTMIQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueMiscellaneousDocuments">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TMDSIQ_09_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueMiscellaneousDocuments">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TMDSIQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueTicket">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTKTIQ_09_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocIssuance_IssueTicket">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTKTIQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_CalculateRefund">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARFRQ_15_1_IA" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_CalculateRefund">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARFRQ_16_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_IgnoreRefund">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TRFIDQ_09_2_IA" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_InitRefund">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TRFSRQ_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_ProcessRefund">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TRFPCQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_SearchRefundRule">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/CRULSQ_05_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocRefund_UpdateRefund">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TRFUUQ_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FOP_CreateFormOfPayment">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TFOPCQ_11_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FOP_CreateFormOfPayment">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TFOPCQ_15_4_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_CheckRules">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FARQNQ_07_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_DisplayFaresForCityPair">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FQDREQ_12_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_GetFareRules">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FARRNQ_10_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativeBestPricingWithoutPNR">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TIBNRQ_13_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativeBestPricingWithoutPNR">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TIBNRQ_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativePricingWithoutPNR">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TIPNRQ_13_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_InformativePricingWithoutPNR">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TIPNRQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerCalendar">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FMPCAQ_14_3_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerExpertSearch">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/NFSSPQ_12_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerExpertSearch">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/NFSSPQ_14_3_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_MasterPricerTravelBoardSearch">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FMPTBQ_14_3_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithBookingClass">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TPCBRQ_13_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithBookingClass">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TPCBRQ_16_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithLowerFares">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TPLFRQ_13_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fare_PricePNRWithLowerFares">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TPLFRQ_16_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_Sell">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/HBKRCQ_13_7_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_Sell">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/HBKRCQ_15_4_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MiniRule_GetFromPricing">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TMRCRQ_11_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_AddFrequentFlyer">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FFAREQ_04_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_AddMultiElements">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRADD_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_AddMultiElements">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRADD_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Cancel">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRXCL_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Cancel">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRXCL_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Ignore">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/CLTREQ_04_1_IA" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRRET_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRRET_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve2">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRRET_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_Retrieve2">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PNRRET_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNR_RetrieveByRecLoc">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/PRETRQ_14_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueueMode_ProcessQueue">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/QUEREQ_09_1_IA" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Queue_List">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/QDQLRQ_11_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Queue_PlacePNR">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/QUQPCQ_03_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Queue_RemoveItem">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/QUQMDQ_03_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Security_Authenticate">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/VLSSLQ_06_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Security_SignOut">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/VLSSOQ_04_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Service_IntegratedCatalogue">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TPICGQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Service_IntegratedCatalogue">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TPICGQ_16_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Service_IntegratedPricing">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TPISGQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ATCShopperMasterPricerCalendar">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FMTCCQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ATCShopperMasterPricerTravelBoardSearch">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FMTCTQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_AutomaticUpdate">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARUPQ_06_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_AutomaticUpdate">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARUPQ_12_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CheckEligibility">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/FATCEQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateManualTST">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TMATCQ_07_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateManualTST">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TMATCQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateTSMFareElement">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TFRECQ_10_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateTSMFromPricing">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TAUSCQ_09_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreateTSTFromPricing">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TAUTCQ_04_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_CreditCardCheck">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/CCVRQT_06_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DeleteTSMP">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSMDQ_08_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DeleteTST">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSTDQ_04_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTSMFareElement">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TFRERQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTSMP">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSMRQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTST">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSTRQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_DisplayTST">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSTRQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ProcessEDoc">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TATREQ_15_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ProcessETicket">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TKTREQ_04_1_IA" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ReissueBestPricingWithoutPNR">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TRBNRQ_08_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_ReissueConfirmedPricing">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARCPQ_13_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RepricePNRWithBookingClass">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARIPQ_12_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RepricePNRWithBookingClass">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARIPQ_14_3_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RepricePNRWithLowestFare">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TARIBQ_12_2_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_RetrieveListOfTSM">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSLRQ_09_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_UpdateTSMP">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSMUQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_UpdateTST">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSTUQ_13_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ticket_UpdateTST">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWOTANA9/TTSTUQ_15_1_1A" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AmadeusWebServices">
+    <wsdl:port name="AmadeusWebServicesPort" binding="tns:AmadeusWebServicesBinding">
+      <soap:address location="https://nodeD1.test.webservices.amadeus.com" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+
+
+<!-- Build Key: 1F8B080000000000000025CDC10AC2301004D07BBF628E8AB46C4A0F36B750A1085A0B2DF41CEA8A8136096914FC7B83C25E6606DEB66C39E8689C45342B6F51AF5EA22471CC49E442607CBEC276D71F10C9B2965585F63A1E5220CAA6E17441FB175CC09BC396200951504159B318B6D0DE2F66FE7D90B88D0A9D421F9C7B205DE3ECCC3E6297867DE2540FAB574E821ACE532A3B557F011FEEF491A2000000 -->

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" version="6.001" id="OTA2011B">
+  <xs:include schemaLocation="chameleon/OTA_HotelReservation.xsd" />
+  <xs:annotation>
+    <xs:documentation xml:lang="en">All Schema files in the OpenTravel Alliance specification are made available according to the terms defined by the OpenTravel License Agreement at http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
+  </xs:annotation>
+  <xs:element name="OTA_HotelAvailRS">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Returns information about hotel properties that meet the requested criteria, indicating whether the requested service, rate, room stay, etc. is available within the date(s) specified. The response message may include Warnings from business processing rules, or Errors if the request did not succeed.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="POS" type="POS_Type" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Point of sale information about the message initiator.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:choice>
+          <xs:sequence>
+            <xs:element name="Success" type="SuccessType">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">An element that is not intended to contain any data. The mere presence of a success element within the response message indicates that the incoming request message was processed successfully.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Warnings" type="WarningsType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Indicates that the recipient of the request message identified one or more business-level warnings/errors, but the message itself was successfully processed.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Profiles" type="ProfilesType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">A collection of profile objects or unique IDs of profiles.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="HotelStays" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">A collection of summarized information about the requested hotels' general availability for each day in the requested range.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="HotelStay" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">A quick view of the requested hotels' general availability for each day in the requested range.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Availability" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Details on the hotel stay including the type of availabilty and the date range for which it applies.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Restriction" minOccurs="0" maxOccurs="5">
+                                <xs:annotation>
+                                  <xs:documentation xml:lang="en">Restrictions pertaining to the availability.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:attribute name="RestrictionType" use="optional">
+                                    <xs:annotation>
+                                      <xs:documentation xml:lang="en">Stay restriction that applies to the availability.</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                      <xs:restriction base="xs:NMTOKEN">
+                                        <xs:enumeration value="MinLOS">
+                                          <xs:annotation>
+                                            <xs:documentation xml:lang="en">Indicates the time unit is for the minimum length of stay restriction.</xs:documentation>
+                                          </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="MaxLOS">
+                                          <xs:annotation>
+                                            <xs:documentation xml:lang="en">Indicates the time unit is for the maximum length of stay restriction.</xs:documentation>
+                                          </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="FixedLOS">
+                                          <xs:annotation>
+                                            <xs:documentation xml:lang="en">Indicates the time unit is for the fixed length of stay restriction.</xs:documentation>
+                                          </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="MinAdvanceBook">
+                                          <xs:annotation>
+                                            <xs:documentation xml:lang="en">Indicates the time unit is for the minimum advanced booking restriction.</xs:documentation>
+                                          </xs:annotation>
+                                        </xs:enumeration>
+                                      </xs:restriction>
+                                    </xs:simpleType>
+                                  </xs:attribute>
+                                  <xs:attribute name="Time" type="xs:integer" use="optional">
+                                    <xs:annotation>
+                                      <xs:documentation xml:lang="en">Used in conjunction with the RestrictionType and the TimeUnit to define the restriction length.</xs:documentation>
+                                    </xs:annotation>
+                                  </xs:attribute>
+                                  <xs:attribute name="TimeUnit" type="TimeUnitType" use="optional">
+                                    <xs:annotation>
+                                      <xs:documentation xml:lang="en">A time unit used to apply this status message to other inventory, and with more granularity than daily. Values: Year, Month, Week, Day, Hour, Minute, Second.</xs:documentation>
+                                    </xs:annotation>
+                                  </xs:attribute>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                            <xs:attribute name="Status" type="AvailabilityStatusType" use="required">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">Used to specify an availability status at the Hotel Stay level for a property.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attributeGroup ref="DateTimeSpanGroup">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">The time span during which the availability applies.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attributeGroup>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="BasicPropertyInfo" type="BasicPropertyInfoType" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Property Information for the Hotel Stay.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Price" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Pricing for the hotel stay including the date range for which it applies.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attributeGroup ref="DateTimeSpanGroup">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">The date range for which the pricing applies.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attributeGroup>
+                            <xs:attribute name="AmountBeforeTax" type="Money" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">The available price before tax.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="AmountAfterTax" type="Money" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">The available price after tax.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="CurrencyCode" type="AlphaLength3" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">The code specifying a monetary unit. Use ISO 4217, three alpha code.</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                            <xs:attribute name="Decimal" type="xs:nonNegativeInteger" use="optional">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">Indicates the number of decimal places for a particular currency. This is equivalent to the ISO 4217 standard "minor unit". Typically used when the amount provided includes the minor unit of currency without a decimal point (e.g., USD 8500 needs DecimalPlaces="2" to represent $85).</xs:documentation>
+                              </xs:annotation>
+                            </xs:attribute>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="RoomStayRPH" type="ListOfRPH" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">References one or more room stays associated with this hotel stay.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RoomStays" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">A collection of details on the Room Stay including Guest Counts, Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="RoomStay" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Details on the Room Stay including Guest Counts, Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:complexContent>
+                        <xs:extension base="RoomStayType">
+                          <xs:sequence>
+                            <xs:element name="Reference" minOccurs="0">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">Information by which this availability quote can be later cross-referenced.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                <xs:complexContent>
+                                  <xs:extension base="UniqueID_Type">
+                                    <xs:attribute name="DateTime" type="xs:dateTime" use="optional">
+                                      <xs:annotation>
+                                        <xs:documentation xml:lang="en">The date and time at which this availability quote was made available.</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:attribute>
+                                  </xs:extension>
+                                </xs:complexContent>
+                              </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ServiceRPHs" type="ServiceRPHsType" minOccurs="0">
+                              <xs:annotation>
+                                <xs:documentation xml:lang="en">A container for the unique references to the services for the room stay.</xs:documentation>
+                              </xs:annotation>
+                            </xs:element>
+                          </xs:sequence>
+                          <xs:attribute name="IsAlternate" type="xs:boolean" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Indicates the RoomStay is an alternate offer. Default=false.</xs:documentation>
+                              <xs:documentation xml:lang="en">
+                                <LegacyDefaultValue>false</LegacyDefaultValue>
+                              </xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                          <xs:attribute name="AvailabilityStatus" type="RateIndicatorType" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Used to specify an availability status at the room stay level for a property.</xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                          <xs:attributeGroup ref="ResponseTypeGroup" />
+                          <xs:attribute name="RoomStayCandidateRPH" type="RPH_Type" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">A reference to a requested room stay candidate from the SearchCriteria.</xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                          <xs:attribute name="MoreDataEchoToken" type="StringLength1to128" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">The availability response returns the attribute if there is additional data that could not fit within the availability response.  The text value should be echoed in the availability request to indicate where to begin the next block of availability data.</xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                          <xs:attribute name="InfoSource" type="InfoSourceType" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Used to specify the source of the data being exchanged as determined by trading partners.</xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                          <xs:attribute name="RPH" type="RPH_Type" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Identifies the room stay for use in the hotel stay.</xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                          <xs:attribute name="AvailableIndicator" type="xs:boolean" use="optional">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">May be used as a simple true/false to indicate availability or used in conjunction with @AvailabilityStatus to indicate if restricted rate qualifications have been met e.g. Exclusive and Available (true) vs. Exclusive but not Available (false).</xs:documentation>
+                            </xs:annotation>
+                          </xs:attribute>
+                        </xs:extension>
+                      </xs:complexContent>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="MoreIndicator" type="StringLength1to128" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">A text field used to indicate that there are additional rates that cannot fit in the availability response.  The text returned should be meaningful in identifying where to begin the next block of data and sent in the availability request.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="SortOrder" type="xs:positiveInteger" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">The specified sort order for the room stay results.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Services" type="ServicesType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">A collection of Service objects. This is the collection of all services associated with any part of this reservation (the reservation in its entirety, one or more guests, or one or more room stays). Which services are attributable to which part is determined by each object's ServiceRPHs collection.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Areas" type="AreasType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Defines a collection of areas determined by the hotel reservation system.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Criteria" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">The availability search criteria specified in the request message.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Criterion" type="HotelSearchCriterionType" maxOccurs="unbounded" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="CurrencyConversions" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>A collection of currency conversion elements.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CurrencyConversion" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation>Provides a rate conversion from one currency to another.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attribute name="RateConversion" type="xs:decimal" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The conversion factor to apply against the source currency to obtain the requested currency.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="SourceCurrencyCode" type="AlphaLength3" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The code specifying the source currency  (use ISO 4217, three alpha code).</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="RequestedCurrencyCode" type="AlphaLength3" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The code specifying the requested currency  (use ISO 4217, three alpha code).</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Indicates the number of decimal places for the requested currency. This is equivalent to the ISO 4217 standard "minor unit".</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="Source" type="StringLength1to64" use="optional">
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">The source of the rate conversion information.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RebatePrograms" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation xml:lang="en">Collection of rebate programs the hotel participates in.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="RebateProgram" type="RebateType" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Information about a rebate program the hotel participates in, such as "Value Added Tax" (VAT).</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element ref="TPA_Extensions" minOccurs="0" />
+          </xs:sequence>
+          <xs:element name="Errors" type="ErrorsType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates that an error occurred in the processing of the incoming request message. An error is defined as a malformed XML message that could not be processed.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attributeGroup ref="OTA_PayloadStdAttributes" />
+      <xs:attribute name="SearchCacheLevel" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Live" />
+            <xs:enumeration value="VeryRecent" />
+            <xs:enumeration value="LessRecent" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

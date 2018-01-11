@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TRFIDR_09_2_IA" xmlns="http://xml.amadeus.com/TRFIDR_09_2_IA" elementFormDefault="qualified">
+  <xs:element name="DocRefund_IgnoreRefundReply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ignoreInformation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="actionRequest">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                    </xs:annotation>
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 4.1 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B080000000000000085903F6FC23010C5777F0AF6AAC4A0321029432408136905541D916B1F60C97F529F5335427CF79E9350B155F2F07C777EEFE7DBACEBF5AE3CAC57C7D7BA98F3197FE60B3A930F500E50896EC297F9E2259FCD279BEDE189F39C73E684056C8484E21ABB066EC7EB3704D4DE910A604060AA893338D9DD98F4D6828B589C844160C6BB73322862688129DF7E1AD8C3574BC3F026A2BC0C8D9336B06B0D14CE5724FB7BFFAC8F4CEA9F584244D22B88421B241B07540B6718397EAC3990D3D028B765B2C5EA9EC2505EC08A4480B417BECCF892A511B5EF1BA349E3B58B35C407F031B7C4DE7D18935E01421C293E09B4FE5BE125C626CF32C2990A2B14B438A58D652C781F1F3ECBD08A10937C775AEAD88DD60327563E94469331DE29E8A79506A370EF4304358EFF02E86B20D5F0010000
+-->
+

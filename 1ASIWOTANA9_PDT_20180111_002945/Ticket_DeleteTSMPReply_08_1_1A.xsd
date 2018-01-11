@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TTSMDR_08_1_1A" xmlns="http://xml.amadeus.com/TTSMDR_08_1_1A" elementFormDefault="qualified">
+  <xs:element name="Ticket_DeleteTSMPReply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="applicationErrorCode" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="errorDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="errorCode">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..5</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="5" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="errorCategory" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="errorCodeOwner" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="errorText" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="freeTextQualification" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="textSubjectQualifier">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="informationType">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..4</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="4" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="freeText" maxOccurs="5">
+                <xs:simpleType>
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">Format limitations: an..70</xs:documentation>
+                  </xs:annotation>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tsmTattoos" minOccurs="0" maxOccurs="579">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="referenceDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="type" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="value">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..17</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="17" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B08000000000000009593C16EDB300C86EF7A8ADC7618123B6D81AD0174F06A273BCC6997B8B7008662318E5059F244B9A851F4DD47D90ED69EB6014140D2F44FF223BDC9B6D92E29B2B4BCDFF2AB78793D8FE9B79CAD9D92A29FC55F56CB9BD5F5F56C93179FE37815C72CC913DFB7806BA5C18806383B0A842D59D88A0AF8D9FB7615452F8D5E884648E87051D92662C7CE480DA9723C42F05E991A23A92A64D519AAA73DFD37827BD701ABAC044A416EAC095ED38021EF24340E6E2B4C1FEA71D3694D81B677AA3EFBD19570129DF61BD716D4A51C15A5ED8E1AF6F0AB0353C183F0D5799203F3ED9FBA07F327E735CCFF56BE3E8343650D590E34900C59A2A60AFD1B3B119D5DA7A9471B400DFE406B7839587F11D0B6127A1A51DB5A12B77475F89E25E92193EA242A5F58ABF1901565AAD00BE3EF880C012354875CB8270888C71C1CE0E2E187AD49CBD443230398065C0D138AC15E2BD012F7D6796277892352570906A01F632978A1F4B428F35F805AAB8CDF821F973134E3ACF5EFF80C7EB897051B07083C918E34BE8DE2DB29866BEB12AD481B471104F7AC2AC054559E6A0BD78F0CB111CE07DD47A32AE5FB6910EF84412D422AD1E1441AA349B948F2E85582563486A0F3795BD05316DA93D3B58E12742B771F6F942203AB01CB0B6A7FDFF9B6F36BAB25381E028CCDE7F9C8F013CE943959D70C4DCCE76C24C497097B579C270F4959A88AD65ADEDE848B6E84323C4FF70C5E5A5A5729B04CB30D2F768FD9653D33E140F0AB9B8BCF0BCA4F77ACA5AF41E1F9F2754CCBE14BB29E55D818BF1AC18881219FEAA694E7A1D8E70FECB224BE8356F7859D1E61F3B303D7B369F13CFECA7E038A24F09761040000
+-->
+

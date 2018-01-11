@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TMATCQ_13_1_1A" xmlns="http://xml.amadeus.com/TMATCQ_13_1_1A" elementFormDefault="qualified">
+  <xs:element name="Ticket_CreateManualTST">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Create TST(s) manually</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="tstoption" minOccurs="0" type="CodedAttributeType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">options about the new TST to be created</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="referenceNumber" type="ReferenceInfoType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">PAX or SEG or TST reference number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="genericQuotation" minOccurs="0" maxOccurs="9">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Itinerary/OC FEE/OB FEE level</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tstType" type="CodedAttributeType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Choose the tree part to build. If TST is COM type one, should be set to OC</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="referenceNumber" minOccurs="0" type="ReferenceInfoType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">PAX or SEG or TST reference number</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CodedAttributeInformationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Convey coded key and corresponding value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeType" type="AlphaNumericString_Length1To5" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodedAttributeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used to have tag value without code list for tag</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeFunction" minOccurs="0" type="AlphaNumericString_Length1To3" />
+      <xs:element name="attributeDetails" maxOccurs="99" type="CodedAttributeInformationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceInfoType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide specific Hotel reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="referenceDetails" minOccurs="0" maxOccurs="99" type="ReferencingDetailsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferencingDetailsType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To provide reference identification.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" minOccurs="0" type="AlphaNumericString_Length1To10" />
+      <xs:element name="value" minOccurs="0" type="AlphaNumericString_Length1To60" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaNumericString_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To5">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..5</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To10">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..10</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To60">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..60</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B08000000000000009553CF6FD33014BEFBAFB0B870404D930D3854F221B4DD40A2DB683371A95479F66B6BE1D8C1CF9916A6FDEF3C27291B07045CA2F7C3793FBEEF7B97CBABE5BAAC968BDDF59538CB8BF3497E3629CEF957D00E50CB8E176F67EFDECFF2337EB9AADEE4F92CCF59B92A63D7005E180B4ED62028B0FB20D1A82A85B307D4EC4E225C510E1BA9401C636C66D3E9436D33594B0D2D66CAD75376D73A6D6161829822C468DC01A7DA2864EA08EADB86BEB51431B4C094D7404F5038EF9257D7E0C81B7375235D97DA09D75A4B81A60BE6708CE25539B4E337C137C14094A1E3D2693EF76E6F34D530D2F24F6EEF432DA3F16EC65B27DB78F4C1FC00CD5B84FEB936A8ACC73600C7188C8AB6E3F4CF9DD15423E3845CCE27FCD40C339961F2ADE5EB3407F2354D1FEE4167AF9886BD6C6DBC0C4D824B8BBDB4084CFBF6CEC206BEB7E014DCC8A88E6306DC877F0213DCF39BC744D0D3EEF11E02D2566405B04065C89207EAD03DB13DD1B76E2D61E61393BDDFD3D9FF9CACBF14B05E493B426EFD41138D8BD9F6E3B25C6C97DAECA58A95F716B7CB6AB73018A58B73628AF823E6B62B19BE41627C78833DD7B8FDEC0F54CB1DFA418CBE76B6633584038C60F4F68501AB71E343FC051F2D8E34578909D3DF630B62DDD85139EEBF206ABC71F10AE240472FB6E07D7C8150EF2701676C5821218AE994F2695E8C31BCF0A1B4866A8F8A4D5A300A70414AA2DE24CA0145AC6588A9EEAD33CAC46E5C2406E9D0F6FA247C04618DD3B17255AEA68F1AACA1352409E829A32C4BE3E997E74362999F6E66A849911EAAFE928D53EC016DBC6E63D3C60B6F350491028C4D26AB01C6D7C8CDF39D4C266C004914257BD15F9437E5AE328AB8DD15E705C9BA96C6896A5331786888B19DC4DD627929AAF5EDF2C4109701A4387B7FF245B52AABF917D6D049183C12C903F4033FA220EBDE24D2C8ECB1913D8C62EC3BA76A1156D2B5D2A6C627B2FE941F15208A73F6139252E08910050000
+-->
+

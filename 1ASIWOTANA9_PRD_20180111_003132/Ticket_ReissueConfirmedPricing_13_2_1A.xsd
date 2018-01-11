@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/TARCPQ_13_2_1A" xmlns="http://xml.amadeus.com/TARCPQ_13_2_1A" elementFormDefault="qualified">
+  <xs:element name="Ticket_ReissueConfirmedPricing">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Ticketing Automatic Reissue Confirmed Pricing Query
+
+</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ticketInfo" maxOccurs="9">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">This group contains all info related to the ticket requested to be exchanged. This group is conditionnal because of Technical constraint.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="paperticketDetailsFirstCoupon" type="TicketNumberTypeI">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Details on the exchanged ticket : information of the first conjonctif coupon.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="couponInfoFirst" minOccurs="0" type="CouponInformationTypeI">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Details on Exchanged coupons into the ticket : first coupons to exchange (related to the first conjonctif). The coupon number is mandatory in the case of paper ticket.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="paperInformation" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">provide ranfe of coupon and ticket for paper processing</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="paperInformationDummy" type="DummySegmentTypeI">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">To avoid ambiguities.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="paperticketDetailsLastCoupon" type="TicketNumberTypeI">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Details on the exchanged ticket : provide the ticket related to the last coupon to exchange</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="papercouponInfoLast" type="CouponInformationTypeI">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Details on Exchanged coupons into the ticket : last coupons to exchange</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ticketRange">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">The range of tickets is provided</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="paperticketDetailsfirst" type="TicketNumberTypeI">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Details on the exchanged ticket : prime ticket</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="paperticketDetailsLast" type="TicketNumberTypeI">
+                            <xs:annotation>
+                              <xs:documentation xml:lang="en">Details on the exchanged ticket : last ticket</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CouponInformationDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the coupon number, status, value, and other related information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cpnNumber" type="AlphaNumericString_Length1To6">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Coupon number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CouponInformationTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify data specific to a value (flight) coupon.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="couponDetails" type="CouponInformationDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Details on coupon</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherCouponDetails" minOccurs="0" maxOccurs="3" type="CouponInformationDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Details on coupon</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DummySegmentTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To serve the purpose of a mandatory segment at the beginning of a group and to avoid segment collision.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="TicketNumberDetailsTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify a ticket number, type of ticket, and related information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number" type="AlphaNumericString_Length1To35">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ticket number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">ticket type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TicketNumberTypeI">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To convey information related to a specific ticket.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentDetails" type="TicketNumberDetailsTypeI">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Details on the document</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaNumericString_Length1To35">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..35</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To6">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..6</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095534D6FDB3810BDF35710BDF4505892E36E8B35C0836A3B41B1EB247514F4524060C8B14D9422550E958D1AE4BF7728C949F6B4DB8B30331CCDC77B6F2E36979B5D596DD6F5D5A5382BE68B59F1C7ECEC4FFE15B403D4B2E7C5C7E5FB8FCB45C12FB6D5BBA25816052BB765EC5BC07363C1C9060405EA4F128DAA52387B40CDEE24C225BD612B1588638CED32CF1F1A9BC9466AE83053BEC9D95DE7B485B509224788D1B803E6DA2864EA08EAFB0D7D1B2962E88029AF81525038EF92D734E0C89BDE9A56BA3EB513AEB396026D1FCCE118C59B726CC7AF836F83812843CFA5D37CE5DDDE68AA61A4E59FDDDE874646E3DD92774E76F1E883F9099A770843BA36A8ACC72E00C7188C8AB6E7F4CF9DD15423E3845CC167FCD40C339961F2ADE5BB3407F21D4D1FEE41676F9886BDEC6CBC086D824B8BBDB4084CFBEECEC20DFCE8C029B896511DA717709FFE1798E05E721E13414FF5E33D04A4ADC80A6081CA90250FD4A17F627BA26FD759C2CC2726077FA073F83959FF51C07A25ED04B9F5079D680CD0F80879F34F4ECB9ABD54B1D6709F6F46BBF2DE62BEA9EAB5C1285D5C1173C42731996F65F80E4901630E0EDCE3B7BFFD816ABBC33098D157CEF6AC817080099CC13E376035DEF8109FE1242090E62C3161FCEFD89A5460ECA424F75B90B5DEB8780971A467105FF03EBE426CF093A03336AE9010C6745A455ECCA7189EFB505A43B52705276D1805B82665516F12E9882A3632C454F7D61965623F2D1283746807BD123E82B07F06AC2AB7F9A3066B680D49827ACAE895A5F1F4EB7322F1AC4E3734D6A4C800D570D9C629F680365E75B1EDE2B9B71A824801C666B3ED08E35BE4E6E56E6633368224E6257BD55F94D7655D1945DCD6F3C58264DE48E344F5D786C1434B8CD512EBF5E64254BBDBCD89212E0348F1E1C3C917D57AB5BAFDC25A3A1183472279847EE4479C91756F1269640ED8C8014631F5DD8141EC6038F9D080BEA60326A1B11369531E85A614ED150668C7B42F1D847EF8B0491A62BE60BF006B5126D439050000
+-->
+

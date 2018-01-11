@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/HSFRES_07_3_1A" xmlns="http://xml.amadeus.com/HSFRES_07_3_1A" elementFormDefault="qualified">
+  <xs:element name="Command_CrypticReply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="messageActionDetails" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="messageFunctionDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="businessFunction" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="messageFunction">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:annotation>
+                            <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                          </xs:annotation>
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="3" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="responseType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+                    </xs:annotation>
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="longTextString">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="textStringDetails">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">Format limitations: an..9999</xs:documentation>
+                    </xs:annotation>
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="9999" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 4.1 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B080000000000000085903F6FC23010C5777F0AF6AAC4A562205286481026D20AA83A22631F60C97F529F5335427CF79E9350B155F2F07C777EEFE75BAFEAD5B6DCAF9687B7BA98F117FECCE774269FA01CA012DD842FF2F96B3EE393F566FFC479CE3973C202364242718D5D03B7C3F51B026AEF4805302030D5C4199CEC6E4C7A6BC1452C4EC22030E3DD39191431B4C0946F8F0676F0D5D230BC8B282F43E3A40D6C5B0385F315C9FEDE3FEB2393FA27961091F412A2D006C9C601D5C219468E1F6BF6E43434CA4D996CB1BAA7309417B0221120ED852F32BE606944EDFAC668D278ED620DF1017CCC2DB1771FC6A4578010478A2381D67F2BBCC4D8E45946385361858216A7B4B18C05EFE3C367195A1162921F4E4B1DBBD17AE0C4CA87D26832C63B05FDB4D26014EE7C88A0C6F15F578DA904F0010000
+-->
+

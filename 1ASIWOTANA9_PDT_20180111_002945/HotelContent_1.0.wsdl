@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://wsdl.amadeus.com/HotelContent_v1" xmlns:ota_2003_05="http://www.opentravel.org/OTA/2003/05" targetNamespace="http://wsdl.amadeus.com/HotelContent_v1" name="HotelContent_1.0">
+  <wsdl:documentation>Version 1.0</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="OTA/2007A/OTA_HotelDescriptiveInfoRQ.xsd" />
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="OTA/2007A/OTA_HotelDescriptiveInfoRS.xsd" />
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="OTA/2007A/OTA_NotifReportRQ.xsd" />
+      <xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="OTA/2007A/OTA_NotifReportRS.xsd" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="OTA_HotelDescriptiveInfoRQ_1.008">
+    <wsdl:part name="body" element="ota_2003_05:OTA_HotelDescriptiveInfoRQ" />
+  </wsdl:message>
+  <wsdl:message name="OTA_HotelDescriptiveInfoRS_6.001">
+    <wsdl:part name="body" element="ota_2003_05:OTA_HotelDescriptiveInfoRS" />
+  </wsdl:message>
+  <wsdl:message name="OTA_NotifReportRQ_2.001">
+    <wsdl:part name="body" element="ota_2003_05:OTA_NotifReportRQ" />
+  </wsdl:message>
+  <wsdl:message name="OTA_NotifReportRS_1.003">
+    <wsdl:part name="body" element="ota_2003_05:OTA_NotifReportRS" />
+  </wsdl:message>
+  <wsdl:portType name="HotelContent_PT">
+    <wsdl:operation name="Hotel_ContentNotifReport">
+      <wsdl:documentation>Version 1.0</wsdl:documentation>
+      <wsdl:input message="tns:OTA_NotifReportRQ_2.001" />
+      <wsdl:output message="tns:OTA_NotifReportRS_1.003" />
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_DescriptiveInfo">
+      <wsdl:documentation>Version 7.1</wsdl:documentation>
+      <wsdl:input message="tns:OTA_HotelDescriptiveInfoRQ_1.008" />
+      <wsdl:output message="tns:OTA_HotelDescriptiveInfoRS_6.001" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
+
