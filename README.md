@@ -9,6 +9,10 @@
 
 ## Quickstart: SOAP API
 
+   * Update the password in `constants.py`.
+   * `pip install -r requirements.txt`
+   * `python test_amadeus_soap.py` 
+
 ## REST API client documentation
 
    * Unofficial Python client: [docs](http://amadeus.readthedocs.io/en/latest/), [code](https://github.com/ardydedase/amadeus-python)
