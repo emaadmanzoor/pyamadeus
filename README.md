@@ -9,7 +9,7 @@
 
 ## Quickstart: SOAP API
 
-   * Update the password in `constants.py`.
+   * Update the username and password in `constants.py`.
    * `pip install -r requirements.txt`
    * `python test_amadeus_soap.py` 
 
